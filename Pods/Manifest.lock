@@ -1,0 +1,79 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - AvoidCrash (2.5.2)
+  - IQKeyboardManager (6.2.1)
+  - Masonry (1.1.0)
+  - MJExtension (3.0.16)
+  - SDCycleScrollView (1.80):
+    - SDWebImage (>= 5.0.0)
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
+  - SocketRocket (0.5.1)
+  - SVProgressHUD (2.2.5)
+  - UMCAnalytics (6.0.5):
+    - UMCCommon
+  - UMCCommon (2.1.1)
+  - UMCSecurityPlugins (1.0.6)
+
+DEPENDENCIES:
+  - AFNetworking
+  - AvoidCrash
+  - IQKeyboardManager
+  - Masonry
+  - MJExtension
+  - SDCycleScrollView
+  - SDWebImage
+  - SocketRocket
+  - SVProgressHUD
+  - UMCAnalytics
+  - UMCCommon
+  - UMCSecurityPlugins
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - AvoidCrash
+    - IQKeyboardManager
+    - Masonry
+    - MJExtension
+    - SDCycleScrollView
+    - SDWebImage
+    - SVProgressHUD
+  trunk:
+    - SocketRocket
+    - UMCAnalytics
+    - UMCCommon
+    - UMCSecurityPlugins
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AvoidCrash: 28c6916fe19bd2b84126b8dec7cbe61c9a12741d
+  IQKeyboardManager: 964638372b4a61892cc74fdfa6fd26de8c9464a2
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJExtension: 54dbbf6ee728f1a88e9aad904353d007831c7847
+  SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  UMCAnalytics: 045be2cd1ec05aa95ad62405a850757f932e2d59
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+
+PODFILE CHECKSUM: c0fd269da17a902797e6181e420dac6304ad504d
+
+COCOAPODS: 1.8.3

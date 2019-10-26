@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//
+//
+//  Created by mac on 2019/1/17.
+//  Copyright © 2019年 TNP. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "UIView+JC.h"
+#import <AFNetworking.h>
+#import <Masonry.h>
+#import "NSString+Extension.h"
+#import <MJExtension.h>
+#import <SVProgressHUD.h>
+#import "UIColor+Extension.h"
+#import "Macros.h"
+#import "UIView+Extension.h"
+#import "NSObject+AlertView.h"
+#import <UIImageView+WebCache.h>
+#import "UIButton+Extension.h"
+#import "UIImage+Extension.h"
+#import "JCTool.h"
+#import "NetTool.h"
+#import "SecurityUtil.h"
+#import "LanguageManager.h"
+#import "SocketTool.h"
+#import <UIButton+WebCache.h>
+#import <SDCycleScrollView.h>
+//#import <UIViewController+CWLateralSlide.h>
+#import "DeckViewController.h"
+
+
+#endif /* PrefixHeader_pch */
