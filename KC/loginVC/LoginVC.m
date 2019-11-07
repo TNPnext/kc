@@ -26,6 +26,8 @@
     [self initViews];
     
 #ifdef DEBUG
+//    _inputF1.text = @"1402436508@qq.com";
+//    _inputF2.text = @"123456";
     _inputF1.text = @"18983387045";
     _inputF2.text = @"pppppp";
 #endif

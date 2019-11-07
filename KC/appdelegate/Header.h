@@ -12,7 +12,6 @@
 #import "LoadVC.h"
 #import "LanguageVC.h"
 #import "GeneralModel.h"
-#import "GeneralView.h"
 #import "ScanViewController.h"
 #import "GeneralXibCell.h"
 #import "WebViewController.h"

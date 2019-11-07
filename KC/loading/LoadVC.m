@@ -7,9 +7,10 @@
 //
 
 #import "LoadVC.h"
-
+#import <WebKit/WKWebView.h>
 @interface LoadVC ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imgV;
+@property (strong, nonatomic) WKWebView *webView;
 
 @property(nonatomic,assign)int count;
 @end
@@ -29,32 +30,25 @@
     [super viewDidLoad];
     self.customNavBar.hidden = 1;
     _count = 0;
-    kWeakSelf;
-    [SocketTool share].loadingBlock = ^{
-        static int a = 0;
-        a++;
-        if (a%10==0) {
-            weakSelf.count++;
-        }
-    };
+    _webView = [[WKWebView alloc]init];
+    _webView.scrollView.scrollEnabled = 0;
+    _webView.scrollView.showsHorizontalScrollIndicator = 0;
+    _webView.frame = CGRectMake(0, NAV_HEIGHT, SCREEN_WIDTH, 300);
+     NSData *gif = [NSData dataWithContentsOfFile: [[NSBundle mainBundle] pathForResource:@"MinerX_start" ofType:@"gif"]];
+    [_webView loadData:gif MIMEType:@"image/gif" characterEncodingName:@"UTF-8"  baseURL:nil];
+    [self.view addSubview:_webView];
     [self initViews];
 }
 
 -(void)initViews
 {
-    
-//
-//
-//    [self goHome];
-//
-    [self reuestD];
-    
+    //[self reuestD];
+    [self performSelector:@selector(reuestD) withObject:nil afterDelay:3];
 }
 
 -(void)reuestD
 {
 #ifdef DEBUG
-    //[self getCoinInfo];
     [self getUserInfo];
 #else
     [self getSeverUrl];
@@ -96,7 +90,6 @@
 
 -(void)initData
 {
-    [self getCoinInfo];
     [self getUserInfo];
     
 }
@@ -117,117 +110,65 @@
     
         UserModel *user = [UserModel mj_objectWithKeyValues:dic];
         [JCTool share].user = user;
+        [self getConfig];
+        [self getzlxy];
         [JCTool goHomePage];
         return;
     }
-    kWeakSelf;
-    NSDate *detailDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
+}
+
+
+
+-(void)getConfig
+{
     TParms;
-    [parms setValue:[JCTool share].user.username forKey:@"username"];
-    [parms setValue:TSEC(currentDateStr) forKey:@"parm"];
-    [parms setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parms setValue:@"2" forKey:@"platform"];
-    [NetTool getDataWithInterface:@"/api/queryuserinfo" Parameters:parms success:^(id  _Nullable responseObject) {
+    [NetTool getDataWithInterface:@"rzq.config.get" Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {
             case 1:
             {
-                NSArray *arr = [[responseObject valueForKey:@"data"] mj_JSONObject];
-                if ([arr isKindOfClass:[NSArray class]] && arr.count>0)
-                {
-                    NSDictionary *dd = arr[0];
-                    UserModel *user = [UserModel mj_objectWithKeyValues:dd];
-                    user.username = [JCTool share].user.username;
-                    [JCTool share].user = user;
-                    [weakSelf getSeverTime];
+                //val 501 基金会官网链接 502 邀请链接 503 提币最小数量
+                NSArray *arr = [responseObject valueForKey:@"data"];
+                NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+                for (NSDictionary *dd in arr) {
+                    [dic setValue:dd forKey:[NSString stringWithFormat:@"%@",[dd valueForKey:@"idx"]]];
                 }
+                [JCTool share].configDic = dic;
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)getzlxy
+{
+    TParms;
+    [parms setValue:@"zlxy" forKey:@"code"];
+    [NetTool getDataWithInterface:@"rzq.news.get" Parameters:parms success:^(id  _Nullable responseObject) {
+        switch (TResCode) {
+            case 1:
+            {
+                NSDictionary *dic = [responseObject valueForKey:@"data"];
+                NSArray *list = [dic valueForKey:@"List"];
+                [JCTool share].xyDic = [list firstObject];
                 
             }
                 break;
             default:
-                [weakSelf getSeverTime];
+            {
+            }
                 break;
         }
     } failure:^(NSError *error) {
-        [weakSelf getSeverTime];
+        
     }];
 }
 
--(void)goHome
-{
-    if (_count%3==0 &&_count!=0) {
-        [self.imgV stopAnimating];
-        
-        [JCTool goHomePage];
-        
-        return;
-    }
-    [self performSelector:@selector(goHome) withObject:nil afterDelay:1];
-    
-}
-
--(void)getCoinInfo
-{
-    
-    TParms;
-    [parms setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parms setValue:@"2" forKey:@"platform"];
-    [NetTool getTypeDataWithInterface:@"/api/coindefine" Parameters:parms success:^(id  _Nullable responseObject) {
-        NSString *date = [responseObject valueForKey:@"data"];
-        NSArray *arr = [date mj_JSONObject];
-        
-        NSArray *dataA = [CoinModel mj_objectArrayWithKeyValuesArray:arr];
-        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-        if ([dataA isKindOfClass:[NSArray class]] && dataA.count>0)
-        {
-            for (CoinModel *mm in dataA)
-            {
-                [dict setValue:mm forKey:[NSString stringWithFormat:@"%d",mm.coinid]];
-            }
-        }
-        [JCTool share].coinDic = dict;
-//        JCLog(@"-------arr==%@",dataA);
-        
-    } failure:^(NSError *error) {
-        [self performSelector:@selector(getCoinInfo) withObject:nil afterDelay:10];
-    }];
-    
-}
-
-
--(void)getSeverTime
-{
-    kWeakSelf;
-    [NetTool getTypeDataWithInterface:@"/api/getsrvtime" Parameters:nil success:^(id  _Nullable responseObject) {
-        NSString *date = [responseObject valueForKey:@"data"];
-        //date = [date substringWithRange:NSMakeRange(1, 19)];
-        NSInteger tt = [[JCTool numberWithUpdata:date] integerValue];
-        //NSInteger now = [[NSDate date]timeIntervalSince1970];
-        [JCTool share].diff = tt;
-        [weakSelf goHome];
-    } failure:^(NSError *error) {
-        [self performSelector:@selector(getSeverTime) withObject:nil afterDelay:10];
-    }];
-    
-}
-
--(void)getSeverTime2
-{
-    //kWeakSelf;
-    [NetTool getTypeDataWithInterface:@"/api/getsrvtime" Parameters:nil success:^(id  _Nullable responseObject) {
-        NSString *date = [responseObject valueForKey:@"data"];
-        
-        NSInteger tt = [[JCTool numberWithUpdata:date] integerValue];
-        
-        [JCTool share].diff = tt;
-        
-    } failure:^(NSError *error) {
-        [self performSelector:@selector(getSeverTime) withObject:nil afterDelay:10];
-    }];
-    
-}
 
 
 @end

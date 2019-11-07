@@ -18,9 +18,7 @@
 
 - (void)wr_toLastViewController
 {
-    if ([self isKindOfClass:[DeckViewController class]]) {
-        [[JCTool share].HomeNav popViewControllerAnimated:1];
-    }
+    
     if (self.navigationController) {
         if (self.navigationController.viewControllers.count == 1) {
             if (self.presentingViewController) {

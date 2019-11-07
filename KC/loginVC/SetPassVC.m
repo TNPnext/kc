@@ -35,7 +35,7 @@
     
      if(![_inputF1.text isPassWord])
     {
-        TShowMessage(@"密码格式为6-16位数字或字母组合");
+        TShowMessage(@"密码6-16字母或数字组合");
         return;
     }
      if(![_inputF1.text isEqualToString:_inputF2.text])

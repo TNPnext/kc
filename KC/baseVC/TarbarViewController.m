@@ -73,7 +73,7 @@
 - (void)setupChildViewControllers
 {
     _viewControllers = [NSMutableArray array];
-    NSArray *vcA = @[@"HMainVC",@"MineVC"];
+    NSArray *vcA = @[@"HMainVC",@"SLZLVC",@"WalletVC",@"MineVC"];
     for (int i = 0; i<vcA.count; i++)
     {
         BaseViewController *vc = [JCTool getViewControllerWithID:vcA[i]];

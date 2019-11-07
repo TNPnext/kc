@@ -21,6 +21,8 @@
 
 @implementation ScanViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -49,9 +51,9 @@
     
     [self.view addSubview:self.customNavBar];
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    self.customNavBar.barBackgroundColor = ColorWithHex(@"#2612A4");
+    self.customNavBar.barBackgroundColor = [JCTool themColor];
     [self.customNavBar wr_setBottomLineHidden:YES];
-    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_h"]];
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"back_white"]];
     [self.customNavBar wr_setRightButtonWithTitle:TLOCAL(@"相册") titleColor:[UIColor whiteColor]];
     self.customNavBar.onClickRightButton = ^{
         [weakSelf photoBtnClicked];

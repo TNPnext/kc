@@ -11,6 +11,7 @@
 @interface OutVC ()
 {
     MoneyModel *_sModel;
+    CGFloat minCount;
 }
 
 @property (strong, nonatomic)NSMutableArray *dataArray;
@@ -34,7 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.customNavBar.title = TLOCAL(@"转出");
+    NSDictionary *dic = [[JCTool share].configDic valueForKey:@"503"];
+    minCount = [[dic valueForKey:@"val"] doubleValue];
+    self.customNavBar.title = TLOCAL(@"提币");
     TInitArray;
     KAddNoti(@selector(reloadData), KMMChange);
    
@@ -52,14 +55,13 @@
         switch (TResCode) {
             case 1:
             {
-                NSDictionary *dic = [responseObject valueForKey:@"data"];
-                NSArray *arr = [dic valueForKey:@"List"];
+                
+                NSArray *arr = [responseObject valueForKey:@"data"];
                 for (NSDictionary *dd in arr) {
-                    NSString *coinid = [NSString stringWithFormat:@"%@",[dd valueForKey:@"coinid"]];
-                    if ([coinid isEqualToString:[JCTool share].money.coinid]) {
+                    NSString *ss = [NSString stringWithFormat:@"%@",[dd valueForKey:@"coinid"]];
+                    if ([ss intValue]==1) {
                         NSString *fee = [dd valueForKey:@"fee"];
-//                        NSString *logourl = [dd valueForKey:@"logourl"];
-                        weakSelf.feeL.text = fee;
+                        weakSelf.feeL.text = [JCTool removeZero:[fee doubleValue]];
                         break;
                     }
                 }
@@ -79,7 +81,7 @@
 {
     _dL.text = [JCTool removeZero:[JCTool share].money.lockcount];
     
-    _kL.text = [JCTool removeZero:[JCTool share].money.balance-[JCTool share].money.lockcount];
+    _kL.text = [JCTool removeZero:[JCTool getCanPay]];
     
     
 }
@@ -89,7 +91,8 @@
     switch (sender.tag) {
         case 10:
         {
-            
+            //全部
+            _numberF.text = [JCTool removeZero:[JCTool getCanPay]];
         }
             break;
         case 11:
@@ -114,7 +117,13 @@
                 TShowMessage(@"转出数量不能小于等于0");
                 return;
             }
-            CGFloat userd = [JCTool share].money.balance-[JCTool share].money.lockcount;
+            if ([_numberF.text doubleValue]<minCount) {
+                NSString *ss = [NSString stringWithFormat:@"%@%@",TLOCAL(@"转出数量不能小于"),[JCTool removeZero:minCount]];
+                TShowMessage(ss);
+                return;
+            }
+            
+            CGFloat userd = [JCTool getCanPay];
             if ([_numberF.text doubleValue]>userd)
             {
                 TShowMessage(@"可用余额不足");

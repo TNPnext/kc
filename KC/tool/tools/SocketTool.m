@@ -40,10 +40,10 @@ static SocketTool *scockTool = nil;
 
 -(void)initSocketsocket
 {
-    NSString *host = @"ws://192.168.1.200:5002/WebSocketXX";
-#ifdef DEBUG
-    host = @"ws://192.168.1.200:5002/WebSocketXX";
-#endif
+    NSString *host = @"ws://pool.minerx.org:8550/websocketXX";
+//#ifdef DEBUG
+//    host = @"ws://192.168.1.200:5002/WebSocketXX";
+//#endif
     _socket = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",host]]];
     _socket.delegate = scockTool;
     [_socket open];
@@ -58,11 +58,7 @@ static SocketTool *scockTool = nil;
     {
         [JCTool querybalance];
     }
-    if ([JCTool share].diff && (number%10==0)) {
-        [JCTool share].diff++;
-    }
-    
-    
+
     if (self.timeblock)
     {
         self.timeblock();
@@ -99,9 +95,11 @@ static SocketTool *scockTool = nil;
     [parms setValue:@"notifycoin" forKey:@"content"];//notifycoin/leftmachine
     NSString *ss = [parms mj_JSONString];
     NSData *data = [ss dataUsingEncoding:NSUTF8StringEncoding];
-    if (_socket.readyState==3) {
+    if (_socket.readyState == SR_CONNECTING)
+        return;
+    if (_socket.readyState == SR_CLOSED) {
         [_socket open];
-    }else if(_socket.readyState==1)
+    }else if(_socket.readyState == SR_OPEN)
     {
 //        [_socket sendPing:data];
         [_socket send:data];
@@ -167,11 +165,15 @@ static SocketTool *scockTool = nil;
     }
     NSDictionary *dic = [dataStr mj_JSONObject];
     NSArray *arr = [[dic valueForKey:@"result"] mj_JSONObject];
-    if ([[dic valueForKey:@"code"] isEqualToString:@"marketupdate"])
+    if ([[dic valueForKey:@"code"] isEqualToString:@"marketdetail"])
     {
         KPostNotiobj(@"reloadHQ", arr);
     }
-    else if ([[dic valueForKey:@"code"] isEqualToString:@"coinNotify"])
+    else if ([[dic valueForKey:@"code"] isEqualToString:@"leftmachine"])
+    {
+        
+    }
+    else if ([[dic valueForKey:@"code"] isEqualToString:@"notifycoin"])
     {
         
     }

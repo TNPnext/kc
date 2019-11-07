@@ -26,15 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-    KAddNoti(@selector(reloadData), KMMChange);
-    self.customNavBar.title = TLOCAL(@"转入");
+
+    self.customNavBar.title = TLOCAL(@"充币");
     [self reloadView];
    
-    
-    
-    
-    
 }
 
 

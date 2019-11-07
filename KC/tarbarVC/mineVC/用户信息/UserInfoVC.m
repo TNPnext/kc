@@ -15,21 +15,11 @@
 @end
 
 @implementation UserInfoVC
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.customNavBar.title = TLOCAL(@"个人信息");
-    _uidL.text = [JCTool share].user.userid;
-    
-    
-    
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [[UIApplication sharedApplication]setStatusBarStyle:0];
     NSString *p1 = TLOCAL(@"未绑定");
-    if ([JCTool share].user.mobile) {
+    if ([JCTool share].user.mobile>0) {
         p1 = [JCTool share].user.mobile;
         p1 = [NSString stringWithFormat:@"%@****%@",[p1 substringToIndex:3],[p1 substringFromIndex:p1.length-4]];
         
@@ -43,6 +33,19 @@
     _phoneL.text = p1;
     _emailL.text = p2;
 }
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.customNavBar.title = TLOCAL(@"个人信息");
+    _uidL.text = [JCTool share].user.mycode;
+    
+    
+    
+}
+
+
+
+
 
 - (IBAction)backClick:(UIButton *)sender {
     [self.navigationController popViewControllerAnimated:1];

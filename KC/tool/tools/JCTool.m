@@ -30,7 +30,8 @@ static JCTool *tool = nil;
 #ifdef DEBUG
     NSDictionary *testDic = @{@"ip":@"http://192.168.1.200",@"port":@"5002"};
     [JCTool share].urlDic = testDic;
-    return @"http://192.168.1.200:5002/";
+//    return @"http://192.168.1.200:5002/server";
+    return @"http://27.159.82.32:8034/server";
 #endif
     // return @"";
     NSArray *urlArr = KOutObj(@"Urls");
@@ -147,12 +148,12 @@ static JCTool *tool = nil;
 
 +(UIColor *)themColor
 {
-    return ColorWithHex(@"#04F5FC");//亮绿色
+    return ColorWithHex(@"5193F4");//亮绿色
 }
 
 +(UIColor *)thempurColor
 {
-    return ColorWithHex(@"#ED5AEB");//紫色
+    return ColorWithHex(@"ED5AEB");//紫色
 }
 
 +(UIColor *)blackColor
@@ -208,6 +209,14 @@ static JCTool *tool = nil;
 +(id)getJsonWithPath:(NSString *)fliePath
 {
     return [NSKeyedUnarchiver unarchiveObjectWithFile:savePath(fliePath)];
+}
+
++(NSString *)sixNumber:(NSString *)str
+{
+    if (str.length>5) {
+        return str;
+    }
+    return [NSString stringWithFormat:@"%06d",[str intValue]];
 }
 
 +(NSString *)removeTWOZero:(CGFloat)number
@@ -353,189 +362,6 @@ static JCTool *tool = nil;
 
 
 
-+(NSString *)getCoinImageName:(NSInteger)num
-{
-    switch (num)
-    {
-        case 0:
-            return @"meiyuan";
-            break;
-        case 1:
-            return @"PAC";
-            break;
-        case 2:
-            return @"BTC";
-            break;
-        case 3:
-            return @"LTC";
-            break;
-        case 4:
-            return @"ETH";
-            break;
-        case 5:
-            return @"XRP";
-            break;
-        case 6:
-            return @"BCH";
-            break;
-        case 7:
-            return @"EOS";
-            break;
-        case 8:
-            return @"BSV";
-            break;
-        case 9:
-            return @"DASH";
-            break;
-        case 10:
-            return @"ADA";
-            break;
-        case 11:
-            return @"XLM";
-            break;
-        case 12:
-            return @"XMR";
-            break;
-        case 13:
-            return @"USDT";
-            break;
-        case 14:
-            return @"USDT";
-            break;
-        case 15:
-            return @"coinaa";
-            break;
-        case 16:
-            return @"coinac";
-            break;
-            
-        default:
-            return @"Unknown";
-            break;
-    }
-}
-
-+(NSString *)getSimpleCoinName:(NSInteger)num
-{
-    switch (num)
-    {
-        case 0:
-            return @"USD";
-            break;
-        case 1:
-            return @"GBR";
-            break;
-        case 2:
-            return @"BTC";
-            break;
-        case 3:
-            return @"LTC";
-            break;
-        case 4:
-            return @"ETH";
-            break;
-        case 5:
-            return @"XRP";
-            break;
-        case 6:
-            return @"BCH";
-            break;
-        case 7:
-            return @"EOS";
-            break;
-        case 8:
-            return @"BSV";
-            break;
-        case 9:
-            return @"DASH";
-            break;
-        case 10:
-            return @"ADA";
-            break;
-        case 11:
-            return @"XLM";
-            break;
-        case 12:
-            return @"XMR";
-            break;
-        case 13:
-            return @"USDTOMNI";
-            break;
-        case 14:
-            return @"USDTERC20";
-            break;
-        case 15:
-            return @"SEED";
-            break;
-        case 16:
-            return @"ENERGY";
-            break;
-        default:
-            return @"Unknown";
-            break;
-    }
-}
-
-+(NSString *)getFullCoinName:(NSInteger)num
-{
-    switch (num)
-    {
-        case 0:
-            return @"USD";
-            break;
-        case 1:
-            return @"GBR";
-            break;
-        case 2:
-            return @"BitCoin";
-            break;
-        case 3:
-            return @"Lite Coin";
-            break;
-        case 4:
-            return @"Ethereum";
-            break;
-        case 5:
-            return @"Ripple Coin";
-            break;
-        case 6:
-            return @"BitCoin Cash ABC";
-            break;
-        case 7:
-            return @"Enterprise Operation System";
-            break;
-        case 8:
-            return @"BitCoinCash SV";
-            break;
-        case 9:
-            return @"Digital Cash";
-            break;
-        case 10:
-            return @"Cardano Coin";
-            break;
-        case 11:
-            return @"Stellar Coin";
-            break;
-        case 12:
-            return @"Monero Coin";
-            break;
-        case 13:
-            return @"USDTOMNI";
-            break;
-        case 14:
-            return @"USDTERC20";
-            break;
-        case 15:
-            return @"SEED";
-            break;
-        case 16:
-            return @"ENERGY";
-            break;
-        default:
-            return @"Unknown";
-            break;
-    }
-}
 
 +(NSString *)getLanguage
 {
@@ -635,71 +461,10 @@ static JCTool *tool = nil;
     
     BaseViewController *vc = [JCTool getViewControllerWithID:@"SetPassVC" name:@"Login"];
     [[NSObject currentViewController]presentViewController:vc animated:1 completion:nil];
-    return;
-    //后面的暂时不用
-    
-    
-    
-    //设置交易密码
-    __block UITextField *passwF1;
-    __block UITextField *passwF2;
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:TLOCAL(@"请设置交易密码")message:TLOCAL(@"必须设置一个交易密码后才能进行交易,在使用资产的时候需要使用交易密码来确认您的身份。")preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:TLOCAL(@"取消")style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-    }]];
-    [alert addAction:[UIAlertAction actionWithTitle:TLOCAL(@"确定")style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        if ([passwF1.text isEqualToString:passwF2.text] && [passwF1.text isPassWord])
-        {
-            [self settingPassWord:passwF1.text];
-        }else if(![passwF1.text isPassWord])
-        {
-            TShowMessage(@"密码格式为6-16位数字或字母组合");
-        }
-        else if(![passwF1.text isEqualToString:passwF2.text])
-        {
-            TShowMessage(@"两次输入的密码不一致");
-        }
-        
-    }]];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = TLOCAL(@"请输入6-16位交易密码");
-        textField.secureTextEntry = 1;
-        passwF1 = textField;
-    }];
-    [alert addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
-        textField.placeholder = TLOCAL(@"请再次输入6-16位交易密码");
-        textField.secureTextEntry = 1;
-        passwF2 = textField;
-    }];
-    
-    [[NSObject currentViewController] presentViewController:alert animated:YES completion:nil];
     
 }
 
-+(void)settingPassWord:(NSString *)password
-{
-    
-    NSMutableDictionary *parm = [NSMutableDictionary dictionary];
-    [parm setValue:[JCTool share].user.username forKey:@"username"];
-    [parm setValue:TSEC(password) forKey:@"parm"];
-    [parm setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parm setValue:@"2" forKey:@"platform"];
-    [NetTool getDataWithInterface:@"" Parameters:parm success:^(id  _Nullable responseObject) {
-        switch (TResCode) {
-            case 1:
-            {
-               
-                
-            }
-                break;
-            default:
-                TShowResMsg;
-                break;
-        }
-    } failure:^(NSError *error) {
-        TShowNetError;
-    }];
-}
+
 
 +(void)inputPassWord:(void(^)(NSString *password))handler
 {
@@ -736,8 +501,14 @@ static JCTool *tool = nil;
             {
                 NSDictionary *dic = [responseObject valueForKey:@"data"];
                 NSArray *arr = [dic valueForKey:@"List"];
-                MoneyModel *mm = [MoneyModel mj_objectWithKeyValues:[arr firstObject]];
-                [JCTool share].money = mm;
+                NSArray *dataA = [MoneyModel mj_objectArrayWithKeyValuesArray:arr];
+                for (MoneyModel *mm in dataA) {
+                    if ([mm.coinid intValue]==1) {
+                        [JCTool share].money = mm;
+                        KPostNoti(KMMChange);
+                        break;
+                    }
+                }
                 
             }
                 break;

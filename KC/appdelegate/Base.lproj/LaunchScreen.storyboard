@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +16,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zhangben_bg" translatesAutoresizingMaskIntoConstraints="NO" id="NDz-EW-rjh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lunchlogo.png" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPQ-Se-iji">
+                                <rect key="frame" x="140.5" y="100" width="94" height="93.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="93.5" id="5J2-WI-elm"/>
+                                    <constraint firstAttribute="width" constant="94" id="kj3-Mr-7tX"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miner-X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piX-49-qCX">
+                                <rect key="frame" x="149.5" y="213.5" width="76" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.2470588235" green="0.57254901960000004" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="NDz-EW-rjh" secondAttribute="bottom" id="HPx-05-RY6"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NDz-EW-rjh" secondAttribute="trailing" id="Jxc-PW-FFP"/>
-                            <constraint firstItem="NDz-EW-rjh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="YFj-qo-zpJ"/>
-                            <constraint firstItem="NDz-EW-rjh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tYF-PH-pw5"/>
+                            <constraint firstItem="jPQ-Se-iji" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="54h-vN-eJ0"/>
+                            <constraint firstItem="jPQ-Se-iji" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="b4y-9N-6sY"/>
+                            <constraint firstItem="piX-49-qCX" firstAttribute="top" secondItem="jPQ-Se-iji" secondAttribute="bottom" constant="20" id="ef4-0C-wuM"/>
+                            <constraint firstItem="piX-49-qCX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fQJ-gO-6Xe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +46,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="zhangben_bg" width="375" height="667"/>
+        <image name="lunchlogo.png" width="93.666664123535156" height="93.666664123535156"/>
     </resources>
 </document>

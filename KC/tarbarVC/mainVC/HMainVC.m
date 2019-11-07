@@ -7,7 +7,6 @@
 //
 
 #import "HMainVC.h"
-#import "AdcVC.h"
 #import "Header.h"
 @interface HMainVC ()<SDCycleScrollViewDelegate>
 {
@@ -18,9 +17,11 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bannerV;
 @property(nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic,strong)NSMutableArray *hqDataArray;
 @property(nonatomic,strong)NSDictionary *advDic;
 @property (weak, nonatomic) IBOutlet UILabel *advTitleL;
 @property (weak, nonatomic) IBOutlet UIView *advView;
+@property (weak, nonatomic) IBOutlet UIView *SXView;
 
 
 @end
@@ -29,22 +30,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[SocketTool share]initSocketsocket];
     TInitArray;
+    _hqDataArray = [NSMutableArray array];
     lan_str = [JCTool getCurrLan];
     _advDic = [NSDictionary new];
     self.customNavBar.hidden = 1;
     if (@available(iOS 11.0, *)) {
         _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
-    
+    NSArray *tAA = @[@"我的矿机",@"项目概况",@"疑问解答"];
     for (UIButton *btn in _itemBg.subviews) {
+        [btn setTitle:TLOCAL(tAA[btn.tag-10]) forState:(UIControlStateNormal)];
         [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:20];
     }
+    tAA = @[@"币种",@"最新价",@"涨幅度"];
+    for (UIButton *btn in _SXView.subviews) {
+        [btn setTitle:TLOCAL(tAA[btn.tag-1]) forState:(UIControlStateNormal)];
+        [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleRight) imageTitleSpace:0];
+    }
     [_advView addTapGestureWithTarget:self selector:@selector(advClick:)];
-    _tableHeader.size = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2+165);
+    _tableHeader.size = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2+165+30);
     
     [self getBannerData];
     [self getxwggData];
+    [self getHangQingList];
 }
 
 - (IBAction)advClick:(UIButton *)sender
@@ -53,6 +63,31 @@
     [self.navigationController pushViewController:vc animated:1];
     
 }
+
+- (IBAction)sxbtnClick:(UIButton *)sender {
+    switch (sender.tag) {
+        case 1:
+        {
+            
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        case 3:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+    
+}
+
 
 
 -(void)initBanner
@@ -71,6 +106,32 @@
     [_bannerV addSubview:t_banner];
     [_tableView reloadData];
     
+}
+
+-(void)getHangQingList
+{
+    kWeakSelf;
+     TParms;
+    [NetTool getDataWithInterface:@"rzq.marketdetail.get" Parameters:parms success:^(id  _Nullable responseObject) {
+        switch (TResCode) {
+            case 1:
+            {
+                NSArray *list = [responseObject valueForKey:@"data"];
+                if (list.count>0) {
+                    
+                    NSArray *arr = [JCTool sortUpdataArray:list sortString:@"coinid"];
+                    
+                    weakSelf.hqDataArray = [CoinModel mj_objectArrayWithKeyValuesArray:arr];
+                    [weakSelf.tableView reloadData];
+                }
+            }
+                break;
+            default:
+                 break;
+        }
+    } failure:^(NSError *error) {
+       
+    }];
 }
 
 
@@ -154,22 +215,19 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return _hqDataArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 60;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
-    UIButton *btn = [cell.contentView viewWithTag:10];
-    btn.backgroundColor = ColorWithHex(@"#00B88E");
-    if (indexPath.row==1 ) {
-        btn.backgroundColor = ColorWithHex(@"#F5353D");
-    }
+    MainHqCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+
+    cell.model = _hqDataArray[indexPath.row];
     return cell;
 }
 
@@ -177,30 +235,10 @@
 
 - (IBAction)itemBtnClick:(UIButton *)sender {
 
-//     AdcVC*vc;
-//    switch (sender.tag) {
-//        case 10:
-//        {
-//            vc = [JCTool getViewControllerWithID:@"JoinReVC"];
-//        }
-//            break;
-//        case 11:
-//        {
-//            vc = [JCTool getViewControllerWithID:@"AdcVC"];
-//            vc.t_tilte = TLOCAL(@"公告中心");
-//
-//
-//        }
-//            break;
-//        case 12:
-//        {
-//            vc = [JCTool getViewControllerWithID:@"HCurrVC"];
-//        }
-//            break;
-//        default:
-//            break;
-//    }
-//    [self.navigationController pushViewController:vc animated:1];
+    
+    NSArray *vcA = @[@"MyPrductVC",@"XMGKVC",@"SugReVC"];
+    BaseViewController *vc = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
+    [self.navigationController pushViewController:vc animated:1];
 
 }
 

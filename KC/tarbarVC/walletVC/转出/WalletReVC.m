@@ -42,52 +42,6 @@
 -(void)getData
 {
     
-    TParms;
-    kWeakSelf;
-    [parms setValue:[JCTool share].user.username forKey:@"username"];
-    NSString *ss = [NSString stringWithFormat:@"%@,0,0",_coinid];
-    [parms setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parms setValue:@"2" forKey:@"platform"];
-    NSString *inter = @"/api/querytransout";
-    if (_segIndex==1) {
-        inter = @"/api/querytransin";
-    }
-    if (_segIndex==2) {
-        inter = @"/api/queryqueue";
-        ss = [NSString stringWithFormat:@"0,0"];
-    }
-    [parms setValue:TSEC(ss) forKey:@"parm"];
-    [NetTool getDataWithInterface:inter Parameters:parms success:^(id  _Nullable responseObject) {
-        switch (TResCode) {
-            case 1:
-            {
-                NSArray *arr = [[responseObject valueForKey:@"data"] mj_JSONObject];
-                
-                
-                if (weakSelf.segIndex==1) {
-                    weakSelf.dataArray2 = [WalletReInModel mj_objectArrayWithKeyValuesArray:arr];
-                    weakSelf.emptyV.hidden = weakSelf.dataArray2.count;
-                }else if(weakSelf.segIndex==0)
-                {
-                   weakSelf.dataArray = [WalletReOutModel mj_objectArrayWithKeyValuesArray:arr];
-                    weakSelf.emptyV.hidden = weakSelf.dataArray.count;
-                }else
-                {
-                    weakSelf.dataArray3 = [JoinModel mj_objectArrayWithKeyValuesArray:arr];
-                    weakSelf.emptyV.hidden = weakSelf.dataArray3.count;
-                }
-                [weakSelf.tableView reloadData];
-                [weakSelf.tableView.mj_header endRefreshing];
-            }
-                break;
-                
-            default:
-                [weakSelf.tableView.mj_header endRefreshing];
-                break;
-        }
-    } failure:^(NSError *error) {
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -103,42 +57,15 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WalletReInModel *model ;
-    if (_segIndex==1) {
-        model = _dataArray2[indexPath.row];
-    }else if(_segIndex==0)
-    {
-        model = _dataArray[indexPath.row];
-    }else
-    {
-        model = _dataArray3[indexPath.row];
-        if (model.tradehash.length>0) {
-            return 140;
-        }
-        return 105;
-    }
     
-    if (model.tradehash.length<1) {
-        return 130;
-    }
     return 140;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (_segIndex==1) {
-        WalletOutCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
-        cell.model = _dataArray2[indexPath.row];
-        return cell;
-    }
-    if (_segIndex==2) {
-        YYCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell3" forIndexPath:indexPath];
-        cell.model = _dataArray3[indexPath.row];
-        return cell;
-    }
-    WalletInCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
-    cell.model = _dataArray[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+    
     return cell;
 }
 

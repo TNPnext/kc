@@ -7,16 +7,25 @@
 //
 
 #import "MineVC.h"
-
+#import "MySYVC.h"
 @interface MineVC ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,strong)NSMutableArray *dataArray;
-@property (weak, nonatomic) IBOutlet UIButton *gowalletBtn;
-@property (weak, nonatomic) IBOutlet UILabel *walletCountL;
 @property (weak, nonatomic) IBOutlet UIButton *levelBtn;
 @property (weak, nonatomic) IBOutlet UILabel *invL;
+@property (weak, nonatomic) IBOutlet UIView *infoV;
+@property (weak, nonatomic) IBOutlet UILabel *allgetL;
 
+@property(nonatomic,assign)CGFloat abtotal;
+@property(nonatomic,assign)CGFloat invitetotal;
+@property(nonatomic,assign)CGFloat jttotal;
+@property(nonatomic,assign)CGFloat stotal;
+@property(nonatomic,assign)CGFloat total;
+@property (weak, nonatomic) IBOutlet UILabel *wkL;
+@property (weak, nonatomic) IBOutlet UILabel *jdL;
+@property (weak, nonatomic) IBOutlet UILabel *sqL;
+@property (weak, nonatomic) IBOutlet UIView *btnV;
 
 
 @end
@@ -25,19 +34,79 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [JCTool querybalance];
+   // KAddNoti(@selector(reloadUI), KMMChange);
+    [_infoV addTapGestureWithTarget:self selector:@selector(infoClick)];
     
     [self initViews];
     [self initData];
+    
+    [self getAllSY];
+}
+
+- (IBAction)goWalletHome:(UIButton *)sender {
+    MySYVC *VC = [JCTool getViewControllerWithID:@"MySYVC"];
+    VC.abtotal = _abtotal;
+    VC.total = _total;
+    VC.invitetotal = _invitetotal;
+    VC.stotal = _stotal;
+    VC.jttotal = _jttotal;
+    [self.navigationController pushViewController:VC animated:1];
+    
+}
+
+
+
+-(void)getAllSY
+{
+    TParms;
+    kWeakSelf;
+    [NetTool getDataWithInterface:@"rzq.tradecredittotal.get" Parameters:parms success:^(id  _Nullable responseObject) {
+        switch (TResCode) {
+            case 1:
+            {
+                NSDictionary *dic = [responseObject valueForKey:@"data"];
+                NSArray *list = [dic valueForKey:@"List"];
+                if (list.count>0) {
+                    NSDictionary *redic = [list firstObject];
+                     weakSelf.abtotal = [[redic valueForKey:@"abtotal"] doubleValue];
+                    weakSelf.invitetotal = [[redic valueForKey:@"invitetotal"] doubleValue];
+                    weakSelf.jttotal = [[redic valueForKey:@"jttotal"] doubleValue];
+                    weakSelf.stotal = [[redic valueForKey:@"stotal"] doubleValue];
+                    CGFloat count = weakSelf.abtotal+weakSelf.invitetotal+weakSelf.jttotal+weakSelf.stotal;
+                    weakSelf.total = count;
+                    weakSelf.wkL.text = [JCTool removeZero:weakSelf.jttotal];
+                    weakSelf.jdL.text = [JCTool removeZero:weakSelf.stotal];
+                    weakSelf.sqL.text = [JCTool removeZero:weakSelf.abtotal];
+                    weakSelf.allgetL.text = [JCTool removeZero:count];
+                }
+            }
+                break;
+                
+            default:
+                break;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+-(void)infoClick
+{
+    UIViewController *vc = [JCTool getViewControllerWithID:@"UserInfoVC" name:@"Login"];
+    [self.navigationController pushViewController:vc animated:1];
 }
 
 -(void)initViews
 {
     TInitArray;
     _dataArray = @[@"语言设置",@"安全设置",@"关于我们",@"退出"].mutableCopy;
-    [_gowalletBtn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleRight) imageTitleSpace:5];
-
-    _invL.text = [NSString stringWithFormat:@"UID:%@",[JCTool share].user.userid];
+    NSArray *ttA = @[@"社区矿机",@"购买记录",@"分享链接"];
+    for (UIButton *btn in _btnV.subviews) {
+        [btn setTitle:TLOCAL(ttA[btn.tag-10]) forState:(UIControlStateNormal)];
+        [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:15];
+    }
+    _invL.text = [NSString stringWithFormat:@"UID:%@",[JCTool share].user.mycode];
     [_levelBtn setTitle:[NSString stringWithFormat:@"M%d",[JCTool share].user.userlevel] forState:(UIControlStateNormal)];
    
 }
@@ -53,8 +122,13 @@
             {
                 NSDictionary *dic = [responseObject valueForKey:@"data"];
                 NSArray *arr = [dic valueForKey:@"List"];
-                MoneyModel *mm = [MoneyModel mj_objectWithKeyValues:[arr firstObject]];
-                [JCTool share].money = mm;
+                NSArray *dataA = [MoneyModel mj_objectArrayWithKeyValuesArray:arr];
+                for (MoneyModel *mm in dataA) {
+                    if ([mm.coinid intValue]==1) {
+                        [JCTool share].money = mm;
+                        break;
+                    }
+                }
                 
             }
                 break;
@@ -70,27 +144,15 @@
     
 }
 
-- (IBAction)loginBtnClick:(UIButton *)sender {
-    [JCTool goLoginPage];
-}
-
-
-- (IBAction)turnOutBtnClick:(UIButton *)sender {
-    switch (sender.tag) {
-        case 10:
-        case 11:
-        {
-            NSArray *vcA = @[@"OutVC",@"HChongVC"];
-            UIViewController *VC = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
-            [self.navigationController pushViewController:VC animated:1];
-        }
-            break;
-        default:
-            break;
-    }
+- (IBAction)shouyiClick:(UIButton *)sender
+{
     
+    NSArray *vcA = @[@"SXSLVC",@"MyYYReVC",@"ShareVC"];
+    UIViewController *VC = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
+    [self.navigationController pushViewController:VC animated:1];
     
 }
+
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

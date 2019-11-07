@@ -7,144 +7,168 @@
 //
 
 #import "WalletVC.h"
-#import "WalletReVC.h"
-@interface WalletVC()
+#import "WalletListVC.h"
+
+@interface WalletVC()<SPPageMenuDelegate>
+{
+    NSInteger _seletedIndex;
+    NSInteger _typeSeleted;
+}
 @property (strong, nonatomic)NSMutableArray *dataArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic)NSMutableDictionary *coinPriceDic;
-@property (weak, nonatomic) IBOutlet UILabel *topNumL;
-@property (assign, nonatomic)NSInteger types;
-@property (weak, nonatomic) IBOutlet UIView *wallV1;
-@property (weak, nonatomic) IBOutlet UIView *wallV2;
+@property (weak, nonatomic) IBOutlet UIView *contentV;
+@property (weak, nonatomic) IBOutlet UILabel *l1;
+@property (weak, nonatomic) IBOutlet UILabel *l2;
+@property (weak, nonatomic) IBOutlet UILabel *l3;
+@property (weak, nonatomic) IBOutlet UILabel *addressL;
+@property (weak, nonatomic) IBOutlet UIView *chooseV;
 
+@property (strong, nonatomic) SPPageMenu* pageMenu;
 
+@property (strong, nonatomic) UIScrollView* scrollView;
+@property (strong, nonatomic) NSMutableArray* controllers;
 @end
-
+static int hh = 40;
+#define SSHH (SCREEN_HEIGHT -BOTTOM_SAFE_SPACE -264)
 @implementation WalletVC
+-(void)viewWillAppear:(BOOL)animated
+{
+    [[UIApplication sharedApplication]setStatusBarStyle:1];
+}
+
+- (IBAction)tcBtnClick:(UIButton *)sender {
+    NSArray *vcA = @[@"OutVC",@"HChongVC"];
+    UIViewController *vc = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
+    [self.navigationController pushViewController:vc animated:1];
+    
+}
+
+- (IBAction)clickAddress:(UIButton *)sender {
+    [UIPasteboard generalPasteboard].string = [JCTool share].money.address;
+    TShowMessage(@"地址已复制到粘贴板");
+    
+}
+
+- (IBAction)hiddenChoseV:(UIButton *)sender {
+    _chooseV.hidden = 1;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.customNavBar.hidden = 1;
-    KAddNoti(@selector(reloadTopV), KMMChange);
-    TInitArray;
-    _coinPriceDic = [NSMutableDictionary dictionary];
-    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(getData)];
-    _types = 0;
-
-    [self getData];
-    
+    KAddNoti(@selector(reloadUI), KMMChange);
+    _typeSeleted = 0;
+    _seletedIndex = 0;
+    [self reloadUI];
+    [self initView];
     
     
 }
 
-
--(void)getData
+-(void)reloadUI
 {
-    NSDate *detailDate = [NSDate date];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *currentDateStr = [dateFormatter stringFromDate: detailDate];
-    TParms;
+    _l1.text = [JCTool removeZero:[JCTool share].money.balance];
+    _l2.text = [JCTool removeZero:[JCTool getCanPay]];
+    _l3.text = [JCTool removeZero:[JCTool share].money.lockcount];
+    _addressL.text = [JCTool share].money.address;
+}
+
+-(void)seletViewShow
+{
+    _chooseV.hidden = 0;
+}
+
+-(void)initView
+{
+    //JCLog(@"----%f",_contentV.size.height);
+    [_contentV addSubview:self.pageMenu];
+    [_contentV addSubview:self.scrollView];
+    
+    
+    NSMutableArray* titles = [NSMutableArray array];
+    NSArray *arr = @[@"全部",@"充币",@"提币",@"收益",@"购买"];
+    NSArray *type = @[@"0",@"1",@"2",@"3,4,5",@"6"];
     kWeakSelf;
-    NSString *interf = @"/api/querybalance";
-    if (_types==1) {
-        interf = @"/api/querytradebalance";
-    }
-    [parms setValue:[JCTool share].user.username forKey:@"username"];
-    [parms setValue:TSEC(currentDateStr) forKey:@"parm"];
-    [parms setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parms setValue:@"2" forKey:@"platform"];
-    [NetTool getDataWithInterface:interf Parameters:parms success:^(id  _Nullable responseObject) {
-        switch (TResCode) {
-            case 1:
-            {
-                NSArray *arr = [[responseObject valueForKey:@"data"] mj_JSONObject];
-                NSArray *sorA = [JCTool sortUpdataArray:arr sortString:@"coinid"];
-                
-                weakSelf.dataArray = [MoneyModel mj_objectArrayWithKeyValuesArray:sorA];
-                NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-                if (sorA.count>0) {
-                    for (NSDictionary *mdic in sorA)
-                    {
-                        [dict setValue:mdic forKeyPath:[NSString stringWithFormat:@"%@",[mdic valueForKey:@"coinid"]]];
-                    }
-                }
-                if (weakSelf.types==0) {
-                    [JCTool share].moneyDic = dict;
-                }else
-                {
-                    [JCTool share].tradeMoneyDic = dict;
-                }
-                [weakSelf getHangqing];
-                [weakSelf.tableView.mj_header endRefreshing];
-            }
-                break;
-                
-            default:
-                [weakSelf.tableView.mj_header endRefreshing];
-                break;
-        }
-    } failure:^(NSError *error) {
-        [weakSelf.tableView.mj_header endRefreshing];
-    }];
-}
-
-
-
--(void)getHangqing
-{
-    kWeakSelf;
-    [NetTool getTypeDataWithInterface:@"/api/gettokenprice" Parameters:nil success:^(id  _Nullable responseObject) {
-        switch (TResCode) {
-            case 1:
-            {
-                NSArray *arr = [[responseObject valueForKey:@"data"] mj_JSONObject];
-                
-                NSArray *nA = [CoinModel mj_objectArrayWithKeyValuesArray:arr];
-                for (CoinModel *mm in nA) {
-                    [weakSelf.coinPriceDic setValue:mm forKey:[NSString stringWithFormat:@"%d",mm.coinid]];
-                }
-                [weakSelf reloadTopV];
-            }
-                break;
-                
-            default:
-                
-                break;
-        }
-    } failure:^(NSError *error) {
-        
-    }];
-}
-
--(void)reloadTopV
-{
-    NSArray *dA = [[JCTool share].moneyDic allValues];
-    if (_types==1) {
-        dA = [[JCTool share].tradeMoneyDic allValues];
-    }
-    
-    NSArray *sorA = [JCTool sortUpdataArray:dA sortString:@"coinid"];
-    _dataArray = [MoneyModel mj_objectArrayWithKeyValuesArray:sorA];
-    CGFloat total = 0.00;
-    for (MoneyModel *mm in _dataArray)
+    for (int i = 0;i<arr.count;i++)
     {
-        if ([mm.coinid intValue]==1) {
-            total +=mm.balance;
-        }else
-        {
-            CoinModel *cm = [_coinPriceDic valueForKey:mm.coinid];
-            total +=mm.balance*cm.price;
-        }
+        NSString *name = arr[i];
+        [titles addObject:TLOCAL(name)];
+        WalletListVC *vc = [JCTool getViewControllerWithID:@"WalletListVC"];
+        vc.btnBlock = ^{
+            [weakSelf seletViewShow];
+        };
+        vc.type = type[i];
+        vc.index = i;
+        [self.controllers addObject:vc];
     }
-    _topNumL.text = [JCTool removeZero:total];
-    [_tableView reloadData];
+    
+    [self.pageMenu setItems:titles selectedItemIndex:0];
+    
+    self.pageMenu.bridgeScrollView = self.scrollView;
+    
+    if (self.pageMenu.selectedItemIndex < self.controllers.count) {
+        UIViewController* vc = self.controllers[self.pageMenu.selectedItemIndex];
+        [self.scrollView addSubview:vc.view];
+        vc.view.frame = CGRectMake(SCREEN_WIDTH*self.pageMenu.selectedItemIndex, 0, SCREEN_WIDTH, SSHH);
+        self.scrollView.contentOffset = CGPointMake(SCREEN_WIDTH*self.pageMenu.selectedItemIndex, 0);
+        self.scrollView.contentSize = CGSizeMake(self.controllers.count*SCREEN_WIDTH, 0);
+    }
+}
+
+#pragma mark - SPPageMenuDelegate
+- (void)pageMenu:(SPPageMenu *)pageMenu itemSelectedFromIndex:(NSInteger)fromIndex toIndex:(NSInteger)toIndex {
+    _typeSeleted = toIndex;
+    if (labs(toIndex - fromIndex) >= 2) {
+        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * toIndex, 0) animated:NO];
+    } else {
+        [self.scrollView setContentOffset:CGPointMake(SCREEN_WIDTH * toIndex, 0) animated:YES];
+    }
+    if (self.controllers.count <= toIndex) {return;}
+    
+    UIViewController* vc = self.controllers[toIndex];
+    // 如果已经加载过，就不再加载
+    if ([vc isViewLoaded]) return;
+    
+    vc.view.frame = CGRectMake(SCREEN_WIDTH * toIndex, 0, SCREEN_WIDTH, SSHH);
+    [self.scrollView addSubview:vc.view];
+}
+
+#pragma mark - getter
+-(SPPageMenu *)pageMenu {
+    if (!_pageMenu) {
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, hh) trackerStyle:SPPageMenuTrackerStyleLineAttachment];
+        _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollEqualWidths;
+        _pageMenu.selectedItemTitleColor = ColorWithHex(@"#5193F4");
+        _pageMenu.backgroundColor = [UIColor whiteColor];
+        _pageMenu.unSelectedItemTitleColor = kTextColor6;;
+        _pageMenu.tracker.backgroundColor = ColorWithHex(@"#5193F4");
+        _pageMenu.itemTitleFont = Font(14);
+        _pageMenu.delegate = self;
+    }
+    return _pageMenu;
+}
+
+-(UIScrollView *)scrollView {
+    if (!_scrollView) {
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 54, SCREEN_WIDTH, SSHH)];
+        _scrollView.pagingEnabled = YES;
+        //_scrollView.backgroundColor = [UIColor redColor];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+    }
+    return _scrollView;
+}
+
+-(NSMutableArray *)controllers {
+    if (!_controllers) {
+        _controllers = [NSMutableArray array];
+    }
+    return _controllers;
 }
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataArray.count;
+    return 4;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,62 +178,25 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    WalletCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
-    cell.model = _dataArray[indexPath.row];
+    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"社区奖励"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+    UILabel *l1 = [cell.contentView viewWithTag:10];
+    l1.text = TLOCAL(arr[indexPath.row]);
+    l1.textColor = kTextColor3;
+    if (indexPath.row ==_seletedIndex) {
+        l1.textColor = ColorWithHex(@"#5193F4");
+    }
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *ss = @"WalletReVC";
-    if (_types==1) {
-        ss = @"BBWReVC";
-    }
-    WalletReVC *vc = [JCTool getViewControllerWithID:ss];
-    MoneyModel *mm = _dataArray[indexPath.row];
-    vc.coinid = mm.coinid;
-    [self.navigationController pushViewController:vc animated:1];
-}
-
-- (IBAction)outBtnClick:(UIButton *)sender {
-    
-    
-    NSArray *arr = @[@"HChongVC",@"OutVC",@"BBHZVC",@"BBZRVC",@"BBTXVC"];//BBHVC/BBHZVC
-    UIViewController *vc = [JCTool getViewControllerWithID:arr[sender.tag-10]];
-    [self.navigationController pushViewController:vc animated:1];
-    
-    
-    
-    
-}
-
-
-- (IBAction)navBtnClick:(UIButton *)sender
-{
-    [[JCTool share].leftVc openLeftView];
-    
-}
-
-
-- (IBAction)segClick:(UIButton *)sender {
-    _types = (sender.tag==10)?0:1;
-    _wallV1.hidden = _types;
-    _wallV2.hidden = !_types;
-    
-    [self getData];
-    for (UIView *view in sender.superview.superview.subviews) {
-        UILabel *l1 = [view viewWithTag:1];
-        UILabel *line = [view viewWithTag:2];
-        if (view.tag == sender.tag)
-        {
-            l1.textColor = [JCTool themColor];
-            line.backgroundColor = [JCTool themColor];
-        }else
-        {
-            l1.textColor = [UIColor whiteColor];
-            line.backgroundColor = [UIColor clearColor];
-        }
-        
-    }
+    _seletedIndex = indexPath.row;
+    NSArray *sA = @[@"3,4,5",@"3",@"5",@"4"];
+    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"社区奖励"];
+    WalletListVC *vc = _controllers[_typeSeleted];
+    [vc reload:TLOCAL(arr[indexPath.row]) type:sA[indexPath.row]];
+    [tableView reloadData];
+    _chooseV.hidden = 1;
 }
 @end

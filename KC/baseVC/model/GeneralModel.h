@@ -32,7 +32,6 @@
 @property(nonatomic,copy)NSString *invitercode;
 @property(nonatomic,assign)int thirdpart;
 
-
 //share
 @property(nonatomic,assign)CGFloat totaladded;
 @property(nonatomic,assign)CGFloat selfadded;
@@ -46,150 +45,12 @@
 @property(nonatomic,copy)NSString *address;
 @property(nonatomic,assign)CGFloat balance;
 @property(nonatomic,assign)CGFloat lockcount;
-
 //
 @property(nonatomic,copy)NSString *coinName;
-@property(nonatomic,copy)NSString *logourl;
-@property(nonatomic,copy)NSString *fee;
+
 
 @end
 
-
-@interface GameModel : NSObject
-@property(nonatomic,copy)NSString *threadid;
-@property(nonatomic,copy)NSString *ID;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,assign)CGFloat needamount;
-@property(nonatomic,assign)CGFloat progress;
-@property(nonatomic,copy)NSString *stime;
-@property(nonatomic,copy)NSString *etime;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,assign)int status;//0未开始 1进行中  2结束
-@property(nonatomic,assign)int iscurrent;
-@property(nonatomic,assign)int nextstage_count;
-
-@end
-
-@interface GameDModel : NSObject
-@property(nonatomic,copy)NSString *threadid;
-@property(nonatomic,copy)NSString *IDx;
-@property(nonatomic,copy)NSString *PerNum;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *roundid;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *username;
-@property(nonatomic,assign)CGFloat amount;
-@property(nonatomic,assign)CGFloat Income;
-@property(nonatomic,assign)CGFloat fee;
-@property(nonatomic,assign)int recharge;//复投
-@property(nonatomic,copy)NSString *confirmdt;
-@property(nonatomic,copy)NSString *selecttime;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,assign)int status;
-@property(nonatomic,copy)NSString *incomeaddr;
-@property(nonatomic,copy)NSString *incomehash;
-@property(nonatomic,assign)int incomestate;
-
-@end
-
-
-@interface JoinModel : NSObject
-@property(nonatomic,assign)int threadid;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *idx;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,assign)int state;//1 排队中  2 部分确认   3 全部确认
-@property(nonatomic,copy)NSString *incomedetail;
-@property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,assign)CGFloat inamount;
-@property(nonatomic,assign)CGFloat confirmamount;
-@property(nonatomic,assign)CGFloat queueamount;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *incomeaddr;
-@property(nonatomic,copy)NSString *tradehash;
-
-
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-@interface IncomeModel : NSObject
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *IDX;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,copy)NSString *block;
-@property(nonatomic,copy)NSString *blockidx;
-@property(nonatomic,assign)int state;//0  待确认  1 已确认
-@property(nonatomic,copy)NSString *tradehash;
-@property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,assign)CGFloat inamount;
-@property(nonatomic,assign)CGFloat confirmamount;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *outaddr;
-
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-@interface OutModel : NSObject
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *IDX;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,assign)int state;//0 待审核  1 已发出  2 已到账
-@property(nonatomic,copy)NSString *requestime;
-@property(nonatomic,copy)NSString *audittime;
-@property(nonatomic,assign)CGFloat inamount;
-@property(nonatomic,assign)CGFloat amount_num;
-@property(nonatomic,assign)CGFloat fee_num;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *target;
-@property(nonatomic,copy)NSString *checksum;
-@property(nonatomic,copy)NSString *tradehash;
-
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-@interface RewardModel : NSObject
-@property(nonatomic,assign)CGFloat amount;
-@property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,copy)NSString *tradehash;
-@property(nonatomic,copy)NSString *tradetime;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,assign)int forwhat;//1 节点奖励  2 社区奖励
-@property(nonatomic,assign)CGFloat getround;
-@property(nonatomic,copy)NSString *linklevel;
-@property(nonatomic,assign)CGFloat linkuser;
-@property(nonatomic,assign)CGFloat sourceidx;
-@property(nonatomic,assign)int sourceper;
-@property(nonatomic,assign)int sourcethread;
-@property(nonatomic,assign)CGFloat sourceuser;
-@property(nonatomic,assign)int state;//0 未发放 1已发放
-@property(nonatomic,assign)int userid;
-
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-
-@interface HomeListModel : NSObject
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *threadid;//进程ID
-@property(nonatomic,assign)int dtopcode;//动态操作 0 全部复投   1 全部提现
-@property(nonatomic,assign)int dtstate;//0 未到账 1已到账
-@property(nonatomic,assign)CGFloat dttotal;//动态奖励
-@property(nonatomic,assign)int jtopcode;//静态操作  0 全部复投   1 本金复投  2 利息复投  3 全部提现
-@property(nonatomic,assign)CGFloat jttotal;//静态奖励
-@property(nonatomic,copy)NSString *roundid;//轮次ID
-@property(nonatomic,copy)NSString *senddt;
-@property(nonatomic,assign)int state;//1 进行中  2 已结束  3 已清算
-@property(nonatomic,assign)CGFloat totalcharge;//我的众筹
-@property(nonatomic,copy)NSString *updatedt;
-
-@property(nonatomic,copy)NSString *jtStr;
-@property(nonatomic,copy)NSString *dtStr;
-@property(nonatomic,copy)NSString *stateStr;
-
-
-//
-//@property(nonatomic,assign)int iscurrent;
-@end
 
 
 @interface SugModel : NSObject
@@ -202,29 +63,9 @@
 @property(nonatomic,copy)NSString *stateStr;
 @property(nonatomic,copy)NSString *picurl;
 @property(nonatomic,copy)NSString *username;
-//质押
-@property(nonatomic,copy)NSString *leftcount;//剩余名额
-@property(nonatomic,copy)NSString *mlevel;//获得的等级
-@property(nonatomic,assign)CGFloat zycount;//质押的金额
 
-//质押记录
-@property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,copy)NSString *zylevel;
 @end
 
-
-
-@interface YJModel : NSObject
-@property(nonatomic,assign)CGFloat addamount;
-@property(nonatomic,assign)CGFloat num;
-@property(nonatomic,assign)int tradeid;
-@property(nonatomic,assign)int userid;
-@property(nonatomic,assign)int fromuser;
-@property(nonatomic,assign)int fromthread;
-@property(nonatomic,assign)int roundid;
-@property(nonatomic,copy)NSString *fromusername;
-@property(nonatomic,copy)NSString *dtime;
-@end
 
 
 @interface AdModel : NSObject
@@ -275,136 +116,110 @@
 @interface CoinModel : NSObject
 @property(nonatomic,assign)int coinid;
 @property(nonatomic,assign)CGFloat price;
-@property(nonatomic,assign)CGFloat pct;
-@property(nonatomic,copy)NSString *coinName;
-
-//
 @property(nonatomic,copy)NSString *coinname;
-@property(nonatomic,assign)CGFloat fee;
-@property(nonatomic,copy)NSString *logourl;
-
 @property(nonatomic,assign)CGFloat open;
-
 @end
 
-
-@interface HModel : NSObject
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,assign)CGFloat currentamount;
-@property(nonatomic,copy)NSString *etime;
-@property(nonatomic,copy)NSString *ftje;
+//矿机
+@interface prductModel : NSObject
 @property(nonatomic,assign)int iscurrent;
-@property(nonatomic,assign)CGFloat needamount;
-@property(nonatomic,copy)NSString *roundid;
+
+@property(nonatomic,assign)int roundid;
 @property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *stime;
-@property(nonatomic,assign)int threadid;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,copy)NSString *stateStr;
+@property(nonatomic,assign)int maxcount_peruser;
+@property(nonatomic,assign)int mincount_peruser;
 
-@end
-
-
-@interface WalletReInModel : NSObject
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,assign)CGFloat inamount;
-@property(nonatomic,copy)NSString *IDX;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *outaddr;
-@property(nonatomic,copy)NSString *tradehash;
-@property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-@interface WalletReOutModel : NSObject
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,assign)CGFloat amount_num;
-@property(nonatomic,copy)NSString *IDX;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *target;
-@property(nonatomic,assign)CGFloat fee_num;
-@property(nonatomic,copy)NSString *tradehash;
-@property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *requestime;
-@property(nonatomic,copy)NSString *audittime;
-@property(nonatomic,copy)NSString *updatedt;
-@property(nonatomic,copy)NSString *stateStr;
-@end
-
-
-@interface GRZBModel : NSObject
-@property(nonatomic,assign)CGFloat deposit_amount;
-@property(nonatomic,assign)CGFloat gettoken;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *sendhash;
-@property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *roundid;
-@property(nonatomic,copy)NSString *dtime;
-@end
-
-
-@interface OETModel : NSObject
-@property(nonatomic,assign)CGFloat tokenprice;
-@property(nonatomic,assign)CGFloat tokencount;
-@property(nonatomic,assign)CGFloat tokentotal;
-//@property(nonatomic,assign)CGFloat tokencount;
-@property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *roundid;
-@property(nonatomic,copy)NSString *dtime;
-
-@end
-
-@interface TXModel : NSObject
-@property(nonatomic,assign)CGFloat amount_num;
-@property(nonatomic,assign)CGFloat fee_num;
-@property(nonatomic,assign)int state;//没用
-@property(nonatomic,assign)int confirmed;//0 未到账  1 已到账
-@property(nonatomic,assign)int forwhat;//1 众筹奖励   2 节点奖励
-@property(nonatomic,copy)NSString *roundid;
-@property(nonatomic,copy)NSString *typeStr;
-
-@end
-
-
-@interface RGModel : NSObject
-@property(nonatomic,assign)CGFloat amount;
+@property(nonatomic,assign)CGFloat totalcount;
+@property(nonatomic,assign)CGFloat buiedcount;
 @property(nonatomic,assign)CGFloat price;
-@property(nonatomic,assign)CGFloat total;
-@property(nonatomic,assign)int state;
-@property(nonatomic,copy)NSString *stateStr;
-@property(nonatomic,copy)NSString *dtime;
+@property(nonatomic,assign)CGFloat aprice;
+@property(nonatomic,copy)NSString *productname;
+@property(nonatomic,copy)NSString *price_description;
+@property(nonatomic,copy)NSString *proinfo;
+@property(nonatomic,copy)NSString *datestr;
+@property(nonatomic,copy)NSString *stime;
+@property(nonatomic,copy)NSString *etime;
+@property(nonatomic,copy)NSString *detailurl;
+@property(nonatomic,copy)NSString *productid;
+
+
 @end
 
 
-@interface WTModel : NSObject
-@property(nonatomic,assign)CGFloat count;//挂单数量
-@property(nonatomic,assign)CGFloat dealcount;//成交数量
-@property(nonatomic,assign)CGFloat price;//挂单价格
-//@property(nonatomic,assign)CGFloat finishticosted;//成交金额
-@property(nonatomic,assign)CGFloat dealavg;//成交均价
-@property(nonatomic,assign)CGFloat costed;
+//收益
+@interface SYModel : NSObject
+@property(nonatomic,assign)int state;
+@property(nonatomic,assign)CGFloat dayamount;
+@property(nonatomic,assign)CGFloat rewardamount;
+@property(nonatomic,copy)NSString *orderid;
+@property(nonatomic,copy)NSString *roundid;
+@property(nonatomic,copy)NSString *linklevel;
+@property(nonatomic,copy)NSString *exinfo;
+@property(nonatomic,copy)NSString *dtime;
+@property(nonatomic,copy)NSString *stateStr;
+
+@end
+
+
+//我的矿机
+@interface MyPrudctModel : NSObject
+@property(nonatomic,assign)int state;
+@property(nonatomic,assign)int buycount;
+@property(nonatomic,assign)int opcode;//0 预约中 1 取消续租
+@property(nonatomic,assign)CGFloat buyprice;
+@property(nonatomic,assign)CGFloat buytotal;
+@property(nonatomic,assign)CGFloat rewardtotal;
+@property(nonatomic,copy)NSString *day;
+@property(nonatomic,copy)NSString *etime;
+@property(nonatomic,copy)NSString *fromqueueid;
+
+@property(nonatomic,copy)NSString *productname;
+@property(nonatomic,copy)NSString *orderid;
+@property(nonatomic,copy)NSString *productid;
+@property(nonatomic,copy)NSString *roundid;
+@property(nonatomic,copy)NSString *stime;
+@property(nonatomic,copy)NSString *userid;
+@property(nonatomic,copy)NSString *stateStr;
+@end
+
+//预约记录
+@interface MyYYReModel : NSObject
+@property(nonatomic,assign)int state;
+@property(nonatomic,assign)int buycount;
+@property(nonatomic,assign)CGFloat buyprice;
+@property(nonatomic,assign)int buiedcount;
+@property(nonatomic,assign)int queuecount;
+@property(nonatomic,assign)CGFloat payedtotal;
+@property(nonatomic,copy)NSString *etime;
+
+@property(nonatomic,copy)NSString *productname;
+@property(nonatomic,copy)NSString *orderid;
+@property(nonatomic,copy)NSString *productid;
+@property(nonatomic,copy)NSString *roundid;
+@property(nonatomic,copy)NSString *stime;
+@property(nonatomic,copy)NSString *userid;
+@property(nonatomic,copy)NSString *stateStr;
+@end
+
+
+
+//钱包记录
+@interface WalletListModel : NSObject
+@property(nonatomic,assign)int tradetype;
+@property(nonatomic,assign)int state;
+
+@property(nonatomic,assign)CGFloat outamount;
+@property(nonatomic,assign)CGFloat inamount;
 @property(nonatomic,assign)CGFloat fee;
-@property(nonatomic,assign)int status;//1 待成交   2 部分成交  3 已成交    0 已撤单
-@property(nonatomic,copy)NSString *idx;
-@property(nonatomic,copy)NSString *statuStr;
-@property(nonatomic,copy)NSString *userid;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *requesttime;
-@property(nonatomic,copy)NSString *lx;//sell buy
-@property(nonatomic,assign)BOOL iscancel;//---
 
-@end
-
-@interface BBHZModel : NSObject
-@property(nonatomic,copy)NSString *category;
-@property(nonatomic,assign)CGFloat amount;
-@property(nonatomic,copy)NSString *coinid;
-@property(nonatomic,copy)NSString *idx;
+@property(nonatomic,copy)NSString *tradeid;
 @property(nonatomic,copy)NSString *tradehash;
-@property(nonatomic,assign)int state;
+@property(nonatomic,copy)NSString *toaddr;
+@property(nonatomic,copy)NSString *fromaddr;
 @property(nonatomic,copy)NSString *dtime;
-@property(nonatomic,copy)NSString *userid;
+//@property(nonatomic,copy)NSString *description;
+@property(nonatomic,copy)NSString *confirmdt;
+@property(nonatomic,copy)NSString *coinid;
 @property(nonatomic,copy)NSString *stateStr;
+@property(nonatomic,copy)NSString *typeStr;
 @end

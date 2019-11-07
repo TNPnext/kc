@@ -63,12 +63,16 @@
     kWeakSelf;
     NSString *shapass = [NSString stringWithFormat:@"%@:%@",[JCTool share].user.mycode,_inputF1.text];
     NSString *shapass1 = [NSString stringWithFormat:@"%@:%@",[JCTool share].user.mycode,_inputF2.text];
-    [parms setValue:[shapass sha256String] forKey:@"oldpassword"];
+    
     [parms setValue:[shapass1 sha256String] forKey:@"newpassword"];
     NSString *interf = @"rzq.user.updatepwd";
     if (_isPay)
     {
         interf = @"rzq.paypwd.update";
+        [parms setValue:[shapass sha256String] forKey:@"oldpaypassword"];
+    }else
+    {
+       [parms setValue:[shapass sha256String] forKey:@"oldpassword"];
     }
     [NetTool getDataWithInterface:interf Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {

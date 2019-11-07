@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8EA9A5C42272CCB900B19264"
-               BuildableName = "KC.app"
+               BuildableName = "Miner-X.app"
                BlueprintName = "KC"
                ReferencedContainer = "container:KC.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8EA9A5C42272CCB900B19264"
-            BuildableName = "KC.app"
+            BuildableName = "Miner-X.app"
             BlueprintName = "KC"
             ReferencedContainer = "container:KC.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8EA9A5C42272CCB900B19264"
-            BuildableName = "KC.app"
+            BuildableName = "Miner-X.app"
             BlueprintName = "KC"
             ReferencedContainer = "container:KC.xcodeproj">
          </BuildableReference>

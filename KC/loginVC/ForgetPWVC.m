@@ -20,6 +20,7 @@
 @property (nonatomic,assign)BOOL isEmail;
 @property(nonatomic,copy)NSString *mycode;
 
+@property (weak, nonatomic) IBOutlet UIView *succesV;
 
 @end
 
@@ -33,7 +34,12 @@
     [super viewDidLoad];
      self.customNavBar.title = TLOCAL(@"找回密码");
     _isEmail = 0;
-    
+    if ([JCTool isLogin]) {
+        _inputF1.userInteractionEnabled = 0;
+        if ([JCTool share].user.mobile.length>0) {
+            _inputF1.text = [JCTool share].user.mobile;
+        }
+    }
 }
 
 
@@ -59,7 +65,13 @@
         TShowMessage(@"两次输入的密码不一致");
         return;
     }
-    
+    //登录找回交易或密码
+    if ([JCTool isLogin]) {
+        _mycode = [JCTool share].user.mycode;
+        [self findRequset];
+        return;
+    }
+    //未登录找回
     [self getMycodeRequest];
 }
 
@@ -92,14 +104,22 @@
     TParms;
     NSString *shapass = [NSString stringWithFormat:@"%@:%@",_mycode,_inputF3.text];
     [parms setValue:_inputF1.text forKey:@"username"];
-    [parms setValue:[shapass sha256String] forKey:@"newpassword"];
+    
     [parms setValue:_inputF2.text forKey:@"code"];
-    [NetTool getDataWithInterface:@"rzq.user.backpwd" Parameters:parms success:^(id  _Nullable responseObject) {
+    NSString *interf = @"rzq.user.backpwd";
+    if (_isPay) {
+        interf = @"rzq.paypwd.back";
+        [parms setValue:[shapass sha256String] forKey:@"paypassword"];
+    }else
+    {
+        [parms setValue:[shapass sha256String] forKey:@"newpassword"];
+    }
+    //
+    [NetTool getDataWithInterface:interf Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {
             case 1:
             {
-                TShowResMsg;
-                [weakSelf.navigationController popViewControllerAnimated:1];
+                weakSelf.succesV.hidden = 0;
             }
                 break;
                 
@@ -113,6 +133,22 @@
         TShowNetError;
     }];
 }
+
+- (IBAction)succesClick:(UIButton *)sender {
+    if ([JCTool isLogin]) {
+        if (_isPay) {
+            [self.navigationController popToRootViewControllerAnimated:1];
+        }else
+        {
+            [JCTool goLoginPage];
+        }
+    }else
+    {
+        [self backPage];
+    }
+    
+}
+
 
 -(IBAction)backPage
 {
@@ -128,6 +164,17 @@
         placeS = TLOCAL(@"请输入邮箱号");
     }
     _inputF1.placeholder = placeS;
+    if ([JCTool isLogin]) {
+        _inputF1.userInteractionEnabled = 0;
+        if (_isEmail &&[JCTool share].user.mail.length>0) {
+            _inputF1.text = [JCTool share].user.mail;
+        }else
+        {
+            _inputF1.text = [JCTool share].user.mobile;
+        }
+    }
+    
+    
 }
 
 - (IBAction)getcodeClick:(UIButton *)sender {
@@ -145,7 +192,11 @@
     kWeakSelf;
     TParms;
     [parms setValue:_inputF1.text forKey:@"acount"];
-    [parms setValue:@"4" forKey:@"type"];//1注册，2绑定邮箱，3绑定手机号，4找回密码,5找回/重置交易密码
+    NSString *type = @"4";
+    if ([JCTool isLogin]) {
+        type = @"5";
+    }
+    [parms setValue:type forKey:@"type"];//1注册，2绑定邮箱，3绑定手机号，4找回密码,5找回/重置交易密码
     [NetTool getDataWithInterface:@"rzq.user.sendcode" Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {
             case 1:

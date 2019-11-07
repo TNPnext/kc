@@ -27,9 +27,10 @@
 @property(nonatomic,strong)NSDictionary *coinDic;//包含logo fee
 @property(nonatomic,strong)NSDictionary *moneyDic;
 @property(nonatomic,strong)NSDictionary *tradeMoneyDic;
+@property(nonatomic,strong)NSDictionary *configDic;
+@property(nonatomic,strong)NSDictionary *xyDic;//协议
 
 
-@property(nonatomic,strong)HModel *currGameM;//当前进行的轮次
 @property(nonatomic,assign)BOOL ishangqingpage;
 @property(nonatomic,strong)DeckViewController *leftVc;
 @property(nonatomic,strong)JCNavViewController *HomeNav;
@@ -60,9 +61,6 @@
 +(UIColor *)themVCBGColor;
 
 
-+(NSString *)getSimpleCoinName:(NSInteger)num;
-+(NSString *)getFullCoinName:(NSInteger)num;
-+(NSString *)getCoinImageName:(NSInteger)num;
 
 +(id)getViewControllerWithID:(NSString *)Id;
 +(id)getViewControllerWithID:(NSString *)Id name:(NSString *)name;
@@ -78,7 +76,7 @@
 +(void)goHomePage;
 
 
-
++(NSString *)sixNumber:(NSString *)str;
 //
 +(NSString *)removeTWOZero:(CGFloat)number;//2
 +(NSString *)removeZeroThree:(CGFloat)number;//3

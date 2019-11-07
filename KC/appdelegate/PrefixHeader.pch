@@ -24,12 +24,10 @@
 #import "JCTool.h"
 #import "NetTool.h"
 #import "SecurityUtil.h"
-#import "LanguageManager.h"
 #import "SocketTool.h"
 #import <UIButton+WebCache.h>
 #import <SDCycleScrollView.h>
-//#import <UIViewController+CWLateralSlide.h>
-#import "DeckViewController.h"
+#import "SPPageMenu.h"
 
 
 #endif /* PrefixHeader_pch */

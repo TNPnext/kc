@@ -27,40 +27,6 @@
 -(void)getData
 {
     
-    TParms;
-    kWeakSelf;
-    NSString *ss = @"0,0";
-    [parms setValue:[JCTool share].user.username forKey:@"username"];
-    [parms setValue:TSEC(ss) forKey:@"parm"];
-    [parms setValue:[JCTool getLanguage] forKey:@"locale"];
-    [parms setValue:@"2" forKey:@"platform"];
-    NSString *interf = @"/api/querysendqueen";
-    [NetTool getDataWithInterface:interf Parameters:parms success:^(id  _Nullable responseObject) {
-        switch (TResCode) {
-            case 1:
-            {
-                [SVProgressHUD dismiss];
-                NSArray *arr = [[responseObject valueForKey:@"data"] mj_JSONObject];
-                NSArray *sorA = [JCTool sortUpdataArray:arr sortString:@"roundid"];
-                NSArray *revA = [[sorA reverseObjectEnumerator]allObjects];
-                weakSelf.dataArray = [TXModel mj_objectArrayWithKeyValuesArray:revA];
-                weakSelf.emptyV.hidden = weakSelf.dataArray.count;
-                [weakSelf.tableView reloadData];
-                [weakSelf.tableView.mj_header endRefreshing];
-            }
-                break;
-                
-            default:
-            {
-                [weakSelf.tableView.mj_header endRefreshing];
-                TShowResMsg;
-            }
-                break;
-        }
-    } failure:^(NSError *error) {
-        [weakSelf.tableView.mj_header endRefreshing];
-        TShowNetError;
-    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -76,8 +42,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    TXCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
-    cell.model = _dataArray[indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+//    cell.model = _dataArray[indexPath.row];
     return cell;
 }
 

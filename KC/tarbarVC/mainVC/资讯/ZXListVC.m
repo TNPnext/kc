@@ -13,7 +13,6 @@
     NSString *lan_str;
 }
 @property(nonatomic,assign)int page;
-@property(nonatomic,assign)int pageNumber;
 @property(nonatomic,strong)NSMutableArray *dataArray;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *emptyV;
@@ -31,12 +30,11 @@
     _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [weakSelf refreshData];
     }];
-    _tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    _tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         [weakSelf loadMore];
     }];
     TInitArray;
     _page = 1;
-    _pageNumber = 20;
     [self getListData];
     
 }
@@ -59,7 +57,6 @@
 {
     kWeakSelf;
     TParms;
-    [parms setValue:[NSString stringWithFormat:@"%d",_pageNumber] forKey:@"pagesize"];
     [parms setValue:_code forKey:@"code"];
     [parms setValue:[NSString stringWithFormat:@"%d",_page] forKey:@"pageindex"];
     [NetTool getDataWithInterface:@"rzq.news.get" Parameters:parms success:^(id  _Nullable responseObject) {
@@ -68,24 +65,19 @@
             {
                 NSDictionary *dic = [responseObject valueForKey:@"data"];
                 NSArray *list = [dic valueForKey:@"List"];
-                if (list.count>0) {
-                    //NSArray *modeA = [ZXModel mj_objectArrayWithKeyValuesArray:list];
-                    [weakSelf.dataArray addObjectsFromArray:list];
-                    [weakSelf.tableView reloadData];
-                    if (list.count<20) {
-                        [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
-                        [weakSelf.tableView.mj_header endRefreshing];
-                    }else
-                    {
-                        [weakSelf.tableView.mj_footer endRefreshing];
-                        [weakSelf.tableView.mj_header endRefreshing];
-                    }
-                }
-                else
+                NSInteger totalPage = [[dic valueForKey:@"PageCount"] intValue];
+                [weakSelf.dataArray addObjectsFromArray:list];
+                [weakSelf.tableView reloadData];
+                if (totalPage==weakSelf.page) {
+                    [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
+                    [weakSelf.tableView.mj_header endRefreshing];
+                }else
                 {
                     [weakSelf.tableView.mj_footer endRefreshing];
                     [weakSelf.tableView.mj_header endRefreshing];
                 }
+                
+                weakSelf.emptyV.hidden = weakSelf.dataArray.count;
                
             }
                 break;
@@ -134,7 +126,7 @@
         l1.text = tit;
         NSString *dt = [dic valueForKey:@"createtime"];
         dt = [dt stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-        l2.text = dt;
+        l2.text = [dt substringToIndex:10];
         
         return cell;
     }
@@ -143,7 +135,8 @@
     UIView *vv = [cell.contentView viewWithTag:120];
     UILabel *l1 = [vv viewWithTag:10];
     UILabel *l2 = [vv viewWithTag:11];
-    UIImageView *l3 = [vv viewWithTag:12];
+    UILabel *l3 = [vv viewWithTag:13];
+    UIImageView *img = [vv viewWithTag:12];
     
     NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
     if (kStringIsEmpty(tit)) {
@@ -152,12 +145,17 @@
     l1.text = tit;
     NSString *dt = [dic valueForKey:@"createtime"];
     dt = [dt stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-    l2.text = dt;
+    l2.text = [dt substringToIndex:10];
     NSString *url = [dic valueForKey:@"picurl"];
     if (kStringIsEmpty(url)) {
         url = @"";
     }
-    [l3 sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:TPlaceIMg];
+    NSString *zai = [dic valueForKey:[NSString stringWithFormat:@"abstract_%@",lan_str]];
+    if (kStringIsEmpty(zai)) {
+        zai = @"";
+    }
+    l3.text = zai;
+    [img sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:TPlaceIMg];
     
     return cell;
 }

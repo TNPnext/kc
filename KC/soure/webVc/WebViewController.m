@@ -118,7 +118,7 @@ SFSafariViewControllerDelegate
 
 //加载完成
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    [self hiddenBottom];
+//    [self hiddenBottom];
 //    [self performSelector:@selector(hiddenBottom) withObject:nil afterDelay:1];
 }
 
