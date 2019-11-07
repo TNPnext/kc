@@ -1067,6 +1067,9 @@
                                                     <state key="normal" title="最新价" image="home_saixuan">
                                                         <color key="titleColor" red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sxbtnClick:" destination="aay-8K-iW4" eventType="touchUpInside" id="CNl-EQ-Qdm"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZB-Uj-GmX">
                                                     <rect key="frame" x="317" y="0.0" width="72" height="30"/>
@@ -1074,6 +1077,9 @@
                                                     <state key="normal" title="涨跌幅" image="home_saixuan">
                                                         <color key="titleColor" red="0.70980392156862748" green="0.70980392156862748" blue="0.70980392156862748" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="sxbtnClick:" destination="aay-8K-iW4" eventType="touchUpInside" id="LEN-0s-naY"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

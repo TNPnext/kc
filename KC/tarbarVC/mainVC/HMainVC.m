@@ -68,23 +68,52 @@
     switch (sender.tag) {
         case 1:
         {
-            
+            sender.selected = !sender.selected;
+            [_hqDataArray sortUsingComparator:^NSComparisonResult(CoinModel  * obj1, CoinModel  * obj2) {
+                if (sender.selected) {
+                    return [[NSNumber numberWithDouble:obj2.coinid] compare:[NSNumber numberWithDouble:obj1.coinid]];
+                }else
+                {
+                    return [[NSNumber numberWithDouble:obj1.coinid] compare:[NSNumber numberWithDouble:obj2.coinid]];
+                }
+            }];
+            [_tableView reloadData];
         }
             break;
         case 2:
         {
-            
+            sender.selected = !sender.selected;
+            [_hqDataArray sortUsingComparator:^NSComparisonResult(CoinModel  * obj1, CoinModel  * obj2) {
+                if (sender.selected) {
+                    return [[NSNumber numberWithDouble:obj2.price] compare:[NSNumber numberWithDouble:obj1.price]];
+                }else
+                {
+                    return [[NSNumber numberWithDouble:obj1.price] compare:[NSNumber numberWithDouble:obj2.price]];
+                }
+            }];
+            [_tableView reloadData];
         }
             break;
         case 3:
         {
-            
+            sender.selected = !sender.selected;
+            [_hqDataArray sortUsingComparator:^NSComparisonResult(CoinModel  * obj1, CoinModel  * obj2) {
+                CGFloat pct1 = (obj1.price - obj1.open)/obj1.open;
+                CGFloat pct2 = (obj2.price - obj2.open)/obj2.open;
+                if (sender.selected) {
+                    
+                    return [[NSNumber numberWithDouble:pct2] compare:[NSNumber numberWithDouble:pct1]];
+                }else
+                {
+                    return [[NSNumber numberWithDouble:pct1] compare:[NSNumber numberWithDouble:pct2]];
+                }
+            }];
+            [_tableView reloadData];
         }
             break;
         default:
             break;
     }
-    
     
 }
 
