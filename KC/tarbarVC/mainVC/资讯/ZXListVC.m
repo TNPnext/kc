@@ -103,9 +103,9 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_code isEqualToString:@"xwgg"]) {
-        return 80;
-    }
+//    if ([_code isEqualToString:@"xwgg"]) {
+//        return 80;
+//    }
     return 105;
 }
 
@@ -113,23 +113,23 @@
 {
     //ZXModel createtime
     NSDictionary *dic = _dataArray[indexPath.row];
-    if ([_code isEqualToString:@"xwgg"]) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
-        UIView *vv = [cell.contentView viewWithTag:120];
-        UILabel *l1 = [vv viewWithTag:10];
-        UILabel *l2 = [vv viewWithTag:11];
-        
-        NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
-        if (kStringIsEmpty(tit)) {
-            tit = @"";
-        }
-        l1.text = tit;
-        NSString *dt = [dic valueForKey:@"createtime"];
-        dt = [dt stringByReplacingOccurrencesOfString:@"T" withString:@" "];
-        l2.text = [dt substringToIndex:10];
-        
-        return cell;
-    }
+//    if ([_code isEqualToString:@"xwgg"]) {
+//        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
+//        UIView *vv = [cell.contentView viewWithTag:120];
+//        UILabel *l1 = [vv viewWithTag:10];
+//        UILabel *l2 = [vv viewWithTag:11];
+//
+//        NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
+//        if (kStringIsEmpty(tit)) {
+//            tit = @"";
+//        }
+//        l1.text = tit;
+//        NSString *dt = [dic valueForKey:@"createtime"];
+//        dt = [dt stringByReplacingOccurrencesOfString:@"T" withString:@" "];
+//        l2.text = [dt substringToIndex:10];
+//
+//        return cell;
+//    }
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell2" forIndexPath:indexPath];
     UIView *vv = [cell.contentView viewWithTag:120];
@@ -137,7 +137,7 @@
     UILabel *l2 = [vv viewWithTag:11];
     UILabel *l3 = [vv viewWithTag:13];
     UIImageView *img = [vv viewWithTag:12];
-    
+    [img cornerRadius:3];
     NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
     if (kStringIsEmpty(tit)) {
         tit = @"";
@@ -146,7 +146,7 @@
     NSString *dt = [dic valueForKey:@"createtime"];
     dt = [dt stringByReplacingOccurrencesOfString:@"T" withString:@" "];
     l2.text = [dt substringToIndex:10];
-    NSString *url = [dic valueForKey:@"picurl"];
+    NSString *url = [dic valueForKey:[NSString stringWithFormat:@"picurl_%@",lan_str]];
     if (kStringIsEmpty(url)) {
         url = @"";
     }

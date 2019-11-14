@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     _segIndex = 0;
-    self.customNavBar.title = TLOCAL(@"资讯");
+    self.customNavBar.title = TLOCAL(@"资讯公告");
     TInitArray;
     NSArray *codeA = @[@"xwgg",@"hyxx",@"gjkx"];
     for (int i=0; i<codeA.count; i++) {

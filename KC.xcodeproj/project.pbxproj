@@ -13,9 +13,13 @@
 		8E191E2B2369727E006764C9 /* SXSLVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E191E2A2369727E006764C9 /* SXSLVC.m */; };
 		8E191E3123698C7D006764C9 /* SYListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E191E3023698C7D006764C9 /* SYListVC.m */; };
 		8E191E352369A52F006764C9 /* MyPrductVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E191E342369A52F006764C9 /* MyPrductVC.m */; };
+		8E230C30237AADF10086FD4C /* HQVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E230C2F237AADF10086FD4C /* HQVC.m */; };
 		8E315425230426750082731F /* XIBView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E315424230426750082731F /* XIBView.m */; };
 		8E4514A2232F84F300E00BCB /* SetPassVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4514A1232F84F300E00BCB /* SetPassVC.m */; };
 		8E46EA26229687EF00AF2EC8 /* SocketTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E46EA25229687EF00AF2EC8 /* SocketTool.m */; };
+		8E4D4EC4237D372000F8D499 /* FZLXVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D4EC3237D372000F8D499 /* FZLXVC.m */; };
+		8E4D4EC8237D440000F8D499 /* FUWUVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D4EC7237D440000F8D499 /* FUWUVC.m */; };
+		8E4D4ECE237D444400F8D499 /* WHATVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4D4ECD237D444400F8D499 /* WHATVC.m */; };
 		8E54FF67230A7992009134B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E54FF69230A7992009134B0 /* InfoPlist.strings */; };
 		8E54FF6F230ABBEA009134B0 /* SPPageMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E54FF6D230ABBEA009134B0 /* SPPageMenu.m */; };
 		8E5DB5AD2374269700382F39 /* MinerX_start.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8E5DB5AC2374269700382F39 /* MinerX_start.gif */; };
@@ -90,6 +94,7 @@
 		8EB219772308132100D2BFBE /* LoadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB219762308132100D2BFBE /* LoadVC.m */; };
 		8EB2197A230A4F7600D2BFBE /* ButtonL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB21979230A4F7600D2BFBE /* ButtonL.m */; };
 		8EB2197D230A50AA00D2BFBE /* LabelL.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB2197C230A50AA00D2BFBE /* LabelL.m */; };
+		8EB3611E237BA02100B85D8A /* SGAdvertScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB3611C237BA02000B85D8A /* SGAdvertScrollView.m */; };
 		8EB4964423013DEF007426A8 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8EB4964323013DEF007426A8 /* Login.storyboard */; };
 		8EB49647230142F7007426A8 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB49646230142F7007426A8 /* LoginVC.m */; };
 		8EB4964A230167BD007426A8 /* RegistVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EB49649230167BD007426A8 /* RegistVC.m */; };
@@ -131,12 +136,20 @@
 		8E191E3023698C7D006764C9 /* SYListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SYListVC.m; sourceTree = "<group>"; };
 		8E191E332369A52F006764C9 /* MyPrductVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPrductVC.h; sourceTree = "<group>"; };
 		8E191E342369A52F006764C9 /* MyPrductVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyPrductVC.m; sourceTree = "<group>"; };
+		8E230C2E237AADF10086FD4C /* HQVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HQVC.h; sourceTree = "<group>"; };
+		8E230C2F237AADF10086FD4C /* HQVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HQVC.m; sourceTree = "<group>"; };
 		8E315423230426750082731F /* XIBView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XIBView.h; sourceTree = "<group>"; };
 		8E315424230426750082731F /* XIBView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XIBView.m; sourceTree = "<group>"; };
 		8E4514A0232F84F300E00BCB /* SetPassVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SetPassVC.h; sourceTree = "<group>"; };
 		8E4514A1232F84F300E00BCB /* SetPassVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SetPassVC.m; sourceTree = "<group>"; };
 		8E46EA24229687EF00AF2EC8 /* SocketTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketTool.h; sourceTree = "<group>"; };
 		8E46EA25229687EF00AF2EC8 /* SocketTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketTool.m; sourceTree = "<group>"; };
+		8E4D4EC2237D372000F8D499 /* FZLXVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FZLXVC.h; sourceTree = "<group>"; };
+		8E4D4EC3237D372000F8D499 /* FZLXVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FZLXVC.m; sourceTree = "<group>"; };
+		8E4D4EC6237D440000F8D499 /* FUWUVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FUWUVC.h; sourceTree = "<group>"; };
+		8E4D4EC7237D440000F8D499 /* FUWUVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FUWUVC.m; sourceTree = "<group>"; };
+		8E4D4ECC237D444400F8D499 /* WHATVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHATVC.h; sourceTree = "<group>"; };
+		8E4D4ECD237D444400F8D499 /* WHATVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHATVC.m; sourceTree = "<group>"; };
 		8E54FF68230A7992009134B0 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		8E54FF6A230A7994009134B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8E54FF6B230A7996009134B0 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -280,6 +293,8 @@
 		8EB21979230A4F7600D2BFBE /* ButtonL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonL.m; sourceTree = "<group>"; };
 		8EB2197B230A50AA00D2BFBE /* LabelL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelL.h; sourceTree = "<group>"; };
 		8EB2197C230A50AA00D2BFBE /* LabelL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelL.m; sourceTree = "<group>"; };
+		8EB3611C237BA02000B85D8A /* SGAdvertScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAdvertScrollView.m; sourceTree = "<group>"; };
+		8EB3611D237BA02000B85D8A /* SGAdvertScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAdvertScrollView.h; sourceTree = "<group>"; };
 		8EB4964323013DEF007426A8 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8EB49645230142F7007426A8 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
 		8EB49646230142F7007426A8 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
@@ -413,6 +428,15 @@
 			path = "我的矿机";
 			sourceTree = "<group>";
 		};
+		8E230C2D237AADC10086FD4C /* 行情 */ = {
+			isa = PBXGroup;
+			children = (
+				8E230C2E237AADF10086FD4C /* HQVC.h */,
+				8E230C2F237AADF10086FD4C /* HQVC.m */,
+			);
+			path = "行情";
+			sourceTree = "<group>";
+		};
 		8E3BD53E2296C7D200F96321 /* mineVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,6 +450,19 @@
 				8EA65C8D2303DB9900FC6538 /* MineVC.m */,
 			);
 			path = mineVC;
+			sourceTree = "<group>";
+		};
+		8E4D4EC5237D43CE00F8D499 /* miner-x */ = {
+			isa = PBXGroup;
+			children = (
+				8E4D4EC2237D372000F8D499 /* FZLXVC.h */,
+				8E4D4EC3237D372000F8D499 /* FZLXVC.m */,
+				8E4D4EC6237D440000F8D499 /* FUWUVC.h */,
+				8E4D4EC7237D440000F8D499 /* FUWUVC.m */,
+				8E4D4ECC237D444400F8D499 /* WHATVC.h */,
+				8E4D4ECD237D444400F8D499 /* WHATVC.m */,
+			);
+			path = "miner-x";
 			sourceTree = "<group>";
 		};
 		8E54FF6C230ABBEA009134B0 /* SPPageMenu */ = {
@@ -449,6 +486,7 @@
 		8E90E15A227E849C006B5FFB /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				8EB3611B237BA02000B85D8A /* SGAdvertScrollView */,
 				8E54FF6C230ABBEA009134B0 /* SPPageMenu */,
 				8EA6F98E22BBA89300DD0DB1 /* MJRefresh */,
 				8EC62966228FFCF10095BBAD /* scan */,
@@ -681,6 +719,7 @@
 		8EA9A5E42272D23700B19264 /* tarbarVC */ = {
 			isa = PBXGroup;
 			children = (
+				8E230C2D237AADC10086FD4C /* 行情 */,
 				8ED654E82325F99C009126DC /* walletVC */,
 				8E99EA10231F99B4002462FC /* mainVC */,
 				8E3BD53E2296C7D200F96321 /* mineVC */,
@@ -862,6 +901,15 @@
 			path = strings;
 			sourceTree = "<group>";
 		};
+		8EB3611B237BA02000B85D8A /* SGAdvertScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				8EB3611C237BA02000B85D8A /* SGAdvertScrollView.m */,
+				8EB3611D237BA02000B85D8A /* SGAdvertScrollView.h */,
+			);
+			path = SGAdvertScrollView;
+			sourceTree = "<group>";
+		};
 		8EB6C6902328D0F1008E4E1C /* 安全设置 */ = {
 			isa = PBXGroup;
 			children = (
@@ -892,6 +940,7 @@
 		8EBF1A9C236AAAA400A6FD82 /* 项目概况 */ = {
 			isa = PBXGroup;
 			children = (
+				8E4D4EC5237D43CE00F8D499 /* miner-x */,
 				8EBF1A9D236AAABD00A6FD82 /* XMGKVC.h */,
 				8EBF1A9E236AAABD00A6FD82 /* XMGKVC.m */,
 			);
@@ -1096,9 +1145,11 @@
 				8EA65C9A23040DB900FC6538 /* XIBLabel.m in Sources */,
 				8EE02BC3228CF80900D0FC5F /* LanguageVC.m in Sources */,
 				8E917D1F23053F850078C498 /* HChongVC.m in Sources */,
+				8E230C30237AADF10086FD4C /* HQVC.m in Sources */,
 				8EA6DF922314D25E003D39A6 /* SugReVC.m in Sources */,
 				8EA9A5E82272D2FF00B19264 /* BaseViewController.m in Sources */,
 				8ED056B12322040300D7805D /* HMainVC.m in Sources */,
+				8E4D4ECE237D444400F8D499 /* WHATVC.m in Sources */,
 				8EA9A63222730E7C00B19264 /* JCTool.m in Sources */,
 				8EE33ED0233CC41E007A1254 /* TiXianReVC.m in Sources */,
 				8EA6DF9623162275003D39A6 /* ShareVC.m in Sources */,
@@ -1129,6 +1180,7 @@
 				8EA6F9BE22BBA89300DD0DB1 /* MJRefreshConst.m in Sources */,
 				8EA6F9CD22BBA89300DD0DB1 /* MJRefreshHeader.m in Sources */,
 				8EB4964D230167EF007426A8 /* ChangePWVC.m in Sources */,
+				8EB3611E237BA02100B85D8A /* SGAdvertScrollView.m in Sources */,
 				8E4514A2232F84F300E00BCB /* SetPassVC.m in Sources */,
 				8E90E173227E898A006B5FFB /* WRNavigationBar.m in Sources */,
 				8EA65C8E2303DB9900FC6538 /* MineVC.m in Sources */,
@@ -1149,6 +1201,7 @@
 				8EA9A61E2272FB0200B19264 /* UIButton+Extension.m in Sources */,
 				8E7F4843236C2DA100D9DAFB /* MyYYReVC.m in Sources */,
 				8EB6C6972328F068008E4E1C /* UserInfoVC.m in Sources */,
+				8E4D4EC8237D440000F8D499 /* FUWUVC.m in Sources */,
 				8E8B39442302E433003A97F9 /* ChangePEVC.m in Sources */,
 				8EDFE2A32294EF2800F35883 /* GeneralXibCell.m in Sources */,
 				8EA6F9BD22BBA89300DD0DB1 /* UIScrollView+MJRefresh.m in Sources */,
@@ -1169,6 +1222,7 @@
 				8EA9A6212272FB0200B19264 /* NSString+Extension.m in Sources */,
 				8E855CE42360584C00889334 /* ZXListVC.m in Sources */,
 				8EA9A5CA2272CCB900B19264 /* AppDelegate.m in Sources */,
+				8E4D4EC4237D372000F8D499 /* FZLXVC.m in Sources */,
 				8E90E167227E853C006B5FFB /* GTMBase64.m in Sources */,
 				8E54FF6F230ABBEA009134B0 /* SPPageMenu.m in Sources */,
 				8ED056B62322360900D7805D /* CustomL.m in Sources */,

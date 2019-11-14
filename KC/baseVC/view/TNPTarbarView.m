@@ -23,7 +23,7 @@
         self.backgroundColor = [UIColor whiteColor];
         
         NSArray *imA = @[@"tab_icon_11",@"tab_icon_3",@"tab_icon_4",@"tab_icon_2"];
-        NSArray *titA = @[TLOCAL(@"首页"),TLOCAL(@"矿机"),TLOCAL(@"钱包"),TLOCAL(@"我的")];
+        NSArray *titA = @[TLOCAL(@"首页"),TLOCAL(@"行情"),TLOCAL(@"钱包"),TLOCAL(@"我的")];
         CGFloat ww = SCREEN_WIDTH/imA.count;
         _contentV = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
         _contentV.backgroundColor = [UIColor whiteColor];

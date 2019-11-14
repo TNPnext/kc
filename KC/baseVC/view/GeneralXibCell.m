@@ -24,7 +24,7 @@
     _model = model;
     _label1.text = model.coinname;
     _label2.text = [JCTool removeZero:_model.price];
-    
+    _cnyL.text = [NSString stringWithFormat:@"￥%@",[JCTool removeZero:_model.cnyprice]];
     _label2.textColor = ColorWithHex(@"00B88E");
     _btn.backgroundColor = ColorWithHex(@"00B88E");
     //F5353D 红 /00B88E
@@ -39,6 +39,11 @@
     }else
     {
        [_btn setTitle:[NSString stringWithFormat:@"+%@%%",[JCTool removeZero:pct]] forState:(UIControlStateNormal)];
+    }
+    _cnyL.hidden = 0;
+    NSDictionary *lanD = KOutObj(Klanguage);
+    if ([[lanD valueForKey:@"idx"] intValue]==2) {
+        _cnyL.hidden = 1;
     }
 }
 

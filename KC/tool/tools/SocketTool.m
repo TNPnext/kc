@@ -42,7 +42,7 @@ static SocketTool *scockTool = nil;
 {
     NSString *host = @"ws://pool.minerx.org:8550/websocketXX";
 //#ifdef DEBUG
-//    host = @"ws://192.168.1.200:5002/WebSocketXX";
+//    host = @"ws://192.168.1.200:5005/WebSocketXX";
 //#endif
     _socket = [[SRWebSocket alloc]initWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",host]]];
     _socket.delegate = scockTool;
@@ -79,11 +79,21 @@ static SocketTool *scockTool = nil;
 
 -(void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
-    JCLog(@"socket--链接成功");
+    JCLog(@"socket------------------链接成功");
     
     [self repConnet];
 }
 
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
+{
+    
+    [self performSelector:@selector(initSocketsocket) withObject:nil afterDelay:15];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
+{
+    [self performSelector:@selector(initSocketsocket) withObject:nil afterDelay:15];
+}
 
 -(void)repConnet
 {
@@ -91,17 +101,14 @@ static SocketTool *scockTool = nil;
         return;
     }
     TParms;
-    [parms setValue:[JCTool share].user.userid forKey:@"senderid"];
+    [parms setValue:[JCTool share].user.login_uid forKey:@"senderid"];
+    [parms setValue:UIDevice.currentDevice.identifierForVendor.UUIDString forKey:@"data"];
     [parms setValue:@"notifycoin" forKey:@"content"];//notifycoin/leftmachine
     NSString *ss = [parms mj_JSONString];
     NSData *data = [ss dataUsingEncoding:NSUTF8StringEncoding];
-    if (_socket.readyState == SR_CONNECTING)
-        return;
-    if (_socket.readyState == SR_CLOSED) {
-        [_socket open];
-    }else if(_socket.readyState == SR_OPEN)
+     if(_socket.readyState == SR_OPEN)
     {
-//        [_socket sendPing:data];
+        [_socket sendPing:data];
         [_socket send:data];
     }
     
@@ -167,15 +174,15 @@ static SocketTool *scockTool = nil;
     NSArray *arr = [[dic valueForKey:@"result"] mj_JSONObject];
     if ([[dic valueForKey:@"code"] isEqualToString:@"marketdetail"])
     {
-        KPostNotiobj(@"reloadHQ", arr);
+        KPostNoti(@"reloadHQ");
     }
     else if ([[dic valueForKey:@"code"] isEqualToString:@"leftmachine"])
     {
-        
+        KPostNoti(@"clickKC");
     }
     else if ([[dic valueForKey:@"code"] isEqualToString:@"notifycoin"])
     {
-        
+        [JCTool querybalance];
     }
     
     

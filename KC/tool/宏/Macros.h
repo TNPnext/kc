@@ -88,7 +88,7 @@
 #define TInitArray _dataArray = [NSMutableArray array]
 #define TSEC(sss) [SecurityUtil encryptAESData:sss Key:[JCTool getToken]]
 #define TResCode [[responseObject valueForKey:@"code"] intValue]
-#define TPlaceIMg [UIImage imageNamed:@"login_logo_new"]
+#define TPlaceIMg [UIImage imageNamed:@"placeholder"]
 
 
 //余额变动

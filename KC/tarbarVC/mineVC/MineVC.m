@@ -76,8 +76,8 @@
                     CGFloat count = weakSelf.abtotal+weakSelf.invitetotal+weakSelf.jttotal+weakSelf.stotal;
                     weakSelf.total = count;
                     weakSelf.wkL.text = [JCTool removeZero:weakSelf.jttotal];
-                    weakSelf.jdL.text = [JCTool removeZero:weakSelf.stotal];
-                    weakSelf.sqL.text = [JCTool removeZero:weakSelf.abtotal];
+                    weakSelf.jdL.text = [JCTool removeZero:weakSelf.abtotal];
+                    weakSelf.sqL.text = [JCTool removeZero:weakSelf.stotal];
                     weakSelf.allgetL.text = [JCTool removeZero:count];
                 }
             }
@@ -100,8 +100,8 @@
 -(void)initViews
 {
     TInitArray;
-    _dataArray = @[@"语言设置",@"安全设置",@"关于我们",@"退出"].mutableCopy;
-    NSArray *ttA = @[@"社区矿机",@"购买记录",@"分享链接"];
+    _dataArray = @[@"疑问解答",@"分享链接",@"语言设置",@"安全设置",@"关于我们",@"退出"].mutableCopy;
+    NSArray *ttA = @[@"社区矿机",@"我的矿机",@"购买记录"];
     for (UIButton *btn in _btnV.subviews) {
         [btn setTitle:TLOCAL(ttA[btn.tag-10]) forState:(UIControlStateNormal)];
         [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:15];
@@ -147,7 +147,7 @@
 - (IBAction)shouyiClick:(UIButton *)sender
 {
     
-    NSArray *vcA = @[@"SXSLVC",@"MyYYReVC",@"ShareVC"];
+    NSArray *vcA = @[@"SXSLVC",@"MyPrductVC",@"MyYYReVC"];
     UIViewController *VC = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
     [self.navigationController pushViewController:VC animated:1];
     
@@ -174,9 +174,9 @@
     l1.text = TLOCAL(_dataArray[indexPath.row]);
     l2.hidden = 1;
     UIImageView *icon = [bg viewWithTag:15];
-    NSArray *imgA = @[@"me_item3",@"me_item2",@"me_item1",@"me_item4"];
+    NSArray *imgA = @[@"me_item6",@"me_item5",@"me_item3",@"me_item2",@"me_item1",@"me_item4"];
     icon.image = TimageName(imgA[indexPath.row]);
-    if (indexPath.row==0) {
+    if (indexPath.row==2) {
         l2.hidden = 0;
         NSDictionary *ld = KOutObj(Klanguage);
         l2.text = [ld valueForKey:@"name"];
@@ -187,11 +187,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row==3) {
+    if (indexPath.row==5) {
         [JCTool goLoginPage];
         return;
     }
-    NSArray *vcs = @[@"LanguageVC",@"SettingVC",@"AboutVC",@""];
+    NSArray *vcs = @[@"SugReVC",@"ShareVC",@"LanguageVC",@"SettingVC",@"AboutVC",@""];
     ChangePWVC *vc = [JCTool getViewControllerWithID:vcs[indexPath.row] name:@"Login"];
     vc.t_tilte = TLOCAL(_dataArray[indexPath.row]);
     [self.navigationController pushViewController:vc animated:1];

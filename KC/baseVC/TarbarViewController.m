@@ -63,8 +63,12 @@
         if (i==index)
         {
             vc.view.hidden = 0;
+            if (index==1) {
+               // KPostNoti(@"clickKC");
+            }
         }else
         {
+            
             vc.view.hidden = 1;
         }
     }
@@ -73,7 +77,7 @@
 - (void)setupChildViewControllers
 {
     _viewControllers = [NSMutableArray array];
-    NSArray *vcA = @[@"HMainVC",@"SLZLVC",@"WalletVC",@"MineVC"];
+    NSArray *vcA = @[@"HMainVC",@"HQVC",@"WalletVC",@"MineVC"];
     for (int i = 0; i<vcA.count; i++)
     {
         BaseViewController *vc = [JCTool getViewControllerWithID:vcA[i]];

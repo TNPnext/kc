@@ -176,14 +176,13 @@
 "预约单价"    =     "Order price" ;
 "预约总量"    =     "Total amount";
 "排队矿机"    =    "Queueing mine machine" ;
-"购买矿机"    =     "Buy mining machine" ;
 "预约矿机"    =     "Appointment mining machine" ;
-"          币种"    =     "          Currency" ;
+"币种"    =     "Currency" ;
 "最新价"    =     "Latest price" ;
 "涨跌幅"    =     "Quote change" ;
 "更多"    =  "More"  ;
 "疑问解答"    =     "Question Answer" ;
-"本期出售矿机"    =    "Total sales in the current period"  ;
+"本期出售T量"    =    "Total sales"  ;
 "拼团价"    =     "Purchase price" ;
 " 回本快"    =   "Back to this fast"  ;
 " 售价低"    =      "Low price";
@@ -198,18 +197,19 @@
 "总计"    =   "Total" ;
 "可用"    =   "Available" ;
 "确认购买"    =   "Confirm" ;
-"购买型号"    =    "Model";
-"购买单价"    =   "Unit price" ;
+"购买产品"    =    "Product";
+"购买价格"    =   "Price" ;
+"购买总价"    =   "total Price" ;
 "已阅读并同意"    =    "Has read and agreed";
 "《购买协议》"    =      "《Rental agreement》";
 "累计总收益"    =     "Total income" ;
-"矿机统计"    =     "Mineral Statistics" ;
+"矿池矿机统计"    =     "Mineral Statistics" ;
 "矿池一"    =      "Mine pool";
 "矿池二"    =     "Mine pool two" ;
 "合计数量"    =    "Total amount" ;
-"节点矿机"    =      "node mine machine";
-"节点矿机总量"    =      "Total mine machine";
-"小节点矿机总量"    =     "Small node amounts" ;
+"节点矿机统计"    =      "Node Total";
+"主节点T量"    =      "Master node T amount";
+"其他节点T量"    =     "Other node T amount" ;
 "个人矿机"    =    "personal mining machine" ;
 "节点矿机"    =   "Node mine machine" ;
 "节点等级"    =     "Level" ;
@@ -240,6 +240,7 @@
 "奖励深度:" = "Reward depth:";
 "优惠价" = "Special price";
 "矿池分红" = "Mine pool dividend";
+
 /*
  
  

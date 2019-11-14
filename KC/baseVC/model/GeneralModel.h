@@ -118,6 +118,7 @@
 @property(nonatomic,assign)CGFloat price;
 @property(nonatomic,copy)NSString *coinname;
 @property(nonatomic,assign)CGFloat open;
+@property(nonatomic,assign)CGFloat cnyprice;
 @end
 
 //矿机
@@ -133,9 +134,8 @@
 @property(nonatomic,assign)CGFloat buiedcount;
 @property(nonatomic,assign)CGFloat price;
 @property(nonatomic,assign)CGFloat aprice;
-@property(nonatomic,copy)NSString *productname;
-@property(nonatomic,copy)NSString *price_description;
-@property(nonatomic,copy)NSString *proinfo;
+@property(nonatomic,copy)NSString *price_description;//不显示
+@property(nonatomic,copy)NSString *proinfo;//不显示
 @property(nonatomic,copy)NSString *datestr;
 @property(nonatomic,copy)NSString *stime;
 @property(nonatomic,copy)NSString *etime;
@@ -143,6 +143,27 @@
 @property(nonatomic,copy)NSString *productid;
 
 
+@property(nonatomic,copy)NSString *productname;
+@property(nonatomic,copy)NSString *name_en;
+@property(nonatomic,copy)NSString *name_tw;
+@property(nonatomic,copy)NSString *p1;
+@property(nonatomic,copy)NSString *p1_en;
+@property(nonatomic,copy)NSString *p1_tw;
+@property(nonatomic,copy)NSString *p2;
+@property(nonatomic,copy)NSString *p2_en;
+@property(nonatomic,copy)NSString *p2_tw;
+@property(nonatomic,copy)NSString *p3;
+@property(nonatomic,copy)NSString *p3_en;
+@property(nonatomic,copy)NSString *p3_tw;
+@property(nonatomic,copy)NSString *p4;
+@property(nonatomic,copy)NSString *p4_en;
+@property(nonatomic,copy)NSString *p4_tw;
+@property(nonatomic,copy)NSString *p5;
+@property(nonatomic,copy)NSString *p5_en;
+@property(nonatomic,copy)NSString *p5_tw;
+@property(nonatomic,copy)NSString *p6;
+@property(nonatomic,copy)NSString *p6_en;
+@property(nonatomic,copy)NSString *p6_tw;
 @end
 
 

@@ -30,8 +30,8 @@ static JCTool *tool = nil;
 #ifdef DEBUG
     NSDictionary *testDic = @{@"ip":@"http://192.168.1.200",@"port":@"5002"};
     [JCTool share].urlDic = testDic;
-//    return @"http://192.168.1.200:5002/server";
-    return @"http://27.159.82.32:8034/server";
+    return @"http://192.168.1.200:5002/server";
+//    return @"http://27.159.82.32:8034/server";
 #endif
     // return @"";
     NSArray *urlArr = KOutObj(@"Urls");
