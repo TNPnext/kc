@@ -73,8 +73,8 @@
     NSArray *imgA = @[@"kg_item0",@"kg_item1",@"kg_item2",@"kg_item3",@"kg_item4"];
     for (int i = 0; i<imgA.count; i++) {
         NSMutableDictionary *dd = [NSMutableDictionary dictionary];
-        [dd setValue:titA[i] forKey:@"tit"];
-        [dd setValue:contentA[i] forKey:@"content"];
+        [dd setValue:TLOCAL(titA[i]) forKey:@"tit"];
+        [dd setValue:TLOCAL(contentA[i]) forKey:@"content"];
         [dd setValue:imgA[i] forKey:@"img"];
         [_dataArray addObject:dd];
     }

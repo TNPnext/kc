@@ -30,8 +30,8 @@
     
     for (int i = 0; i<titA.count; i++) {
         NSMutableDictionary *dd = [NSMutableDictionary dictionary];
-        [dd setValue:titA[i] forKey:@"tit"];
-        [dd setValue:contentA[i] forKey:@"content"];
+        [dd setValue:TLOCAL(titA[i]) forKey:@"tit"];
+        [dd setValue:TLOCAL(contentA[i]) forKey:@"content"];
         [_dataArray addObject:dd];
     }
     

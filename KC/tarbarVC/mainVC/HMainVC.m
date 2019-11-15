@@ -50,7 +50,7 @@
     
     
     //[_advView addTapGestureWithTarget:self selector:@selector(advClick:)];
-    _tableHeader.size = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH/2+165+30+10);
+    _tableHeader.size = CGSizeMake(SCREEN_WIDTH, SCREEN_WIDTH*0.6+165+30+10);
     
     _advertV = [[SGAdvertScrollView alloc]initWithFrame:CGRectMake(20, 0, SCREEN_WIDTH-40, 36)];
     _advertV.backgroundColor = [UIColor clearColor];
@@ -81,25 +81,25 @@
 
 - (void)advertScrollView:(SGAdvertScrollView *)advertScrollView didSelectedItemAtIndex:(NSInteger)index
 {
-    NSDictionary *dic = _ggDataArray[index];
-    WebViewController *webV = [WebViewController new];
-    NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
-    if (kStringIsEmpty(tit)) {
-        tit = @"";
-    }
-    webV.t_tilte = tit;
-    NSString *url = [dic valueForKey:[NSString stringWithFormat:@"linkurl_%@",lan_str]];
-    if (kStringIsEmpty(url)) {
-        url = @"";
-    }
-    webV.reqUrl = url;
-    [self.navigationController pushViewController:webV animated:1];
+//    NSDictionary *dic = _ggDataArray[index];
+//    WebViewController *webV = [WebViewController new];
+//    NSString *tit = [dic valueForKey:[NSString stringWithFormat:@"title_%@",lan_str]];
+//    if (kStringIsEmpty(tit)) {
+//        tit = @"";
+//    }
+//    webV.t_tilte = tit;
+//    NSString *url = [dic valueForKey:[NSString stringWithFormat:@"linkurl_%@",lan_str]];
+//    if (kStringIsEmpty(url)) {
+//        url = @"";
+//    }
+//    webV.reqUrl = url;
+//    [self.navigationController pushViewController:webV animated:1];
 }
 
 
 -(void)initBanner
 {
-    SDCycleScrollView *t_banner = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH/2) delegate:self placeholderImage:TimageName(@"bannerp")];
+    SDCycleScrollView *t_banner = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_WIDTH*0.6) delegate:self placeholderImage:TimageName(@"bannerp")];
     t_banner.backgroundColor = [UIColor whiteColor];
     t_banner.bannerImageViewContentMode = UIViewContentModeScaleToFill;
     t_banner.autoScrollTimeInterval = 4;
@@ -117,15 +117,12 @@
 
 
 
-
+//滚动公告
 -(void)getxwggData
 {
     kWeakSelf;
-     TParms;
-    [parms setValue:@"xwgg" forKey:@"code"];
-    [parms setValue:@"3" forKey:@"pagesize"];
-    [parms setValue:@"1" forKey:@"pageindex"];
-    [NetTool getDataWithInterface:@"rzq.news.get" Parameters:parms success:^(id  _Nullable responseObject) {
+    TParms;
+    [NetTool getDataWithInterface:@"rzq.indexrolling.get" Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {
             case 1:
             {
@@ -134,15 +131,19 @@
                 NSMutableArray *daA = [NSMutableArray array];
                 if (list.count>0) {
                     for (NSDictionary *dd in list) {
-                        NSString *tit = [dd valueForKey:[NSString stringWithFormat:@"title_%@",self->lan_str]];
-                        if (kStringIsEmpty(tit)) {
-                            tit = @"";
+                        NSString *content = @"";
+                        NSString *mycode = [dd valueForKey:@"mycode"];
+                        if (kStringIsEmpty(mycode)) {
+                            mycode = @"";
                         }
+                        CGFloat buycount = [[dd valueForKey:@"buycount"] doubleValue];
                         
-                        [daA addObject:tit];
+                        content = [NSString stringWithFormat:@"%@ %@ %@T%@",mycode,TLOCAL(@"成功购买"),[JCTool removeZero:buycount],TLOCAL(@"算力")];
+                        
+                        [daA addObject:content];
                     }
                     [weakSelf.advertV setTitles:daA];
-                    weakSelf.ggDataArray = list;
+//                    weakSelf.ggDataArray = list;
                     [weakSelf.tableView reloadData];
                 }
             }

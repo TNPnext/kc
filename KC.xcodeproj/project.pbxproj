@@ -35,6 +35,7 @@
 		8E8AB244235061C4005E184A /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EA9A5E22272CE8100B19264 /* libc++.tbd */; };
 		8E8AB24623506239005E184A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E8AB24523506239005E184A /* UIKit.framework */; };
 		8E8B39442302E433003A97F9 /* ChangePEVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8B39432302E433003A97F9 /* ChangePEVC.m */; };
+		8E8B5F26237E49AE00ADABD3 /* GuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E8B5F25237E49AE00ADABD3 /* GuideVC.m */; };
 		8E90E159227E8477006B5FFB /* NetTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E90E157227E8477006B5FFB /* NetTool.m */; };
 		8E90E15D227E84B4006B5FFB /* WHC_XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E90E15C227E84B3006B5FFB /* WHC_XMLParser.m */; };
 		8E90E167227E853C006B5FFB /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E90E163227E853C006B5FFB /* GTMBase64.m */; };
@@ -170,6 +171,8 @@
 		8E8AB24523506239005E184A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8E8B39422302E433003A97F9 /* ChangePEVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePEVC.h; sourceTree = "<group>"; };
 		8E8B39432302E433003A97F9 /* ChangePEVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePEVC.m; sourceTree = "<group>"; };
+		8E8B5F24237E49AE00ADABD3 /* GuideVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideVC.h; sourceTree = "<group>"; };
+		8E8B5F25237E49AE00ADABD3 /* GuideVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideVC.m; sourceTree = "<group>"; };
 		8E90E157227E8477006B5FFB /* NetTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetTool.m; sourceTree = "<group>"; };
 		8E90E158227E8477006B5FFB /* NetTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetTool.h; sourceTree = "<group>"; };
 		8E90E15B227E84B3006B5FFB /* WHC_XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHC_XMLParser.h; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				8EE02BC2228CF80900D0FC5F /* LanguageVC.m */,
 				8EB219752308132100D2BFBE /* LoadVC.h */,
 				8EB219762308132100D2BFBE /* LoadVC.m */,
+				8E8B5F24237E49AE00ADABD3 /* GuideVC.h */,
+				8E8B5F25237E49AE00ADABD3 /* GuideVC.m */,
 			);
 			path = loading;
 			sourceTree = "<group>";
@@ -1211,6 +1216,7 @@
 				8EC6296E228FFCF10095BBAD /* ScanViewController.m in Sources */,
 				8E90E159227E8477006B5FFB /* NetTool.m in Sources */,
 				8EA6F9C622BBA89300DD0DB1 /* MJRefreshAutoStateFooter.m in Sources */,
+				8E8B5F26237E49AE00ADABD3 /* GuideVC.m in Sources */,
 				8E315425230426750082731F /* XIBView.m in Sources */,
 				8EC81F8A228BCF4B00F1AA17 /* TNPXIBButton.m in Sources */,
 				8E90E178227E9411006B5FFB /* GeneralModel.m in Sources */,

@@ -107,13 +107,20 @@
     }
     else
     {
+       NSString *ss =  KOutObj(@"isfirst");
+        if (!ss) {
+            KSaveObj(@"1", @"isfirst");
+            UIViewController *guide = [JCTool getViewControllerWithID:@"GuideVC"];
+            [JCTool getWindow].rootViewController = guide;
+            return;
+        }
+        
     
         UserModel *user = [UserModel mj_objectWithKeyValues:dic];
         [JCTool share].user = user;
         [self getConfig];
         [self getzlxy];
         [JCTool goHomePage];
-        return;
     }
 }
 
