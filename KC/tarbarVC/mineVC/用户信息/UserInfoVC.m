@@ -12,6 +12,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *phoneL;
 @property (weak, nonatomic) IBOutlet UILabel *emailL;
 @property (weak, nonatomic) IBOutlet UILabel *uidL;
+@property (weak, nonatomic) IBOutlet UILabel *userNameL;
+
 @end
 
 @implementation UserInfoVC
@@ -38,7 +40,7 @@
     [super viewDidLoad];
     self.customNavBar.title = TLOCAL(@"个人信息");
     _uidL.text = [JCTool share].user.mycode;
-    
+    _userNameL.text = [JCTool share].user.username;
     
     
 }

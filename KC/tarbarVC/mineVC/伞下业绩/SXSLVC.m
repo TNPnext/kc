@@ -135,11 +135,17 @@
                 if (dic.count>0) {
                     CGFloat atotal = [[dic valueForKey:@"atotal"] doubleValue];
                     CGFloat btotal = [[dic valueForKey:@"btotal"] doubleValue];
-                    if (!kStringIsEmpty([dic valueForKey:@"acode"])) {
-                         weakSelf.auid.text = [NSString stringWithFormat:@"UID:%@",[dic valueForKey:@"acode"]];
+                    if (!kStringIsEmpty([dic valueForKey:@"ausername"])) {
+                        NSString *code = [NSString stringWithFormat:@"%@",[dic valueForKey:@"ausername"]];
+                        code = [NSString stringWithFormat:@"%@***%@",[code substringToIndex:2],[code substringWithRange:NSMakeRange(code.length-2, 2)]];
+                        weakSelf.auid.text = code;
                     }
-                    if (!kStringIsEmpty([dic valueForKey:@"bcode"])) {
-                        weakSelf.buid.text = [NSString stringWithFormat:@"UID:%@",[dic valueForKey:@"bcode"]];
+                    if (!kStringIsEmpty([dic valueForKey:@"busername"])) {
+                        NSString *code = [NSString stringWithFormat:@"%@",[dic valueForKey:@"busername"]];
+                        code = [NSString stringWithFormat:@"%@***%@",[code substringToIndex:2],[code substringWithRange:NSMakeRange(code.length-2, 2)]];
+                        weakSelf.buid.text = code;
+                        
+                        
                     }
                    
                     
@@ -179,7 +185,9 @@
     UILabel *l2 = [vv viewWithTag:11];
     UILabel *l3 = [vv viewWithTag:12];
     UILabel *l4 = [vv viewWithTag:13];
-    l1.text = [NSString stringWithFormat:@"%@",[dic valueForKey:@"mycode"]];
+    NSString *code = [NSString stringWithFormat:@"%@",[dic valueForKey:@"username"]];
+    code = [NSString stringWithFormat:@"%@***%@",[code substringToIndex:3],[code substringWithRange:NSMakeRange(code.length-2, 2)]];
+    l1.text = code;
     int level = [[dic valueForKey:@"userlevel"] intValue];
     l2.text = [NSString stringWithFormat:@"M%@",[dic valueForKey:@"userlevel"]];
     if (level>7) {

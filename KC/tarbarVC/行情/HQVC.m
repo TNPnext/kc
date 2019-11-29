@@ -113,12 +113,13 @@
         case 1:
         case 2:
         {
+            
             [_hqDataArray sortUsingComparator:^NSComparisonResult(CoinModel  * obj1, CoinModel  * obj2) {
                 if (_types==2) {
-                    return [[NSNumber numberWithDouble:obj2.coinid] compare:[NSNumber numberWithDouble:obj1.coinid]];
+                    return [obj1.coinname compare:obj2.coinname options:(NSNumericSearch)];
                 }else
                 {
-                    return [[NSNumber numberWithDouble:obj1.coinid] compare:[NSNumber numberWithDouble:obj2.coinid]];
+                    return [obj2.coinname compare:obj1.coinname options:(NSNumericSearch)];
                 }
             }];
             [_tableView reloadData];

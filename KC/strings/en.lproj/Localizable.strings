@@ -47,7 +47,6 @@
 "转入"    =      "Transfer";
 "转出"    =     "Turn out" ;
 "矿机收益"    =     "Mineral" ;
-"社区奖励"    =     "Community";
 "节点分红"    =     "Node dividends" ;
 "矿机购置"    =     "Machine purchase" ;
 "退款"    =    "Refund" ;
@@ -94,7 +93,6 @@
 "收益"    =      "Income";
 "所有收益"    =     "All proceeds" ;
 "矿机收益"    =     "Mineral revenue" ;
-"社区奖励"    =      "Community";
 "手续费"    =    "fee"  ;
 "输入内容不能为空"    =     "The input cannot be empty" ;
 "输入内容不能超过500个字符"    =     "The input cannot exceed 500 characters" ;
@@ -183,7 +181,7 @@
 "最新价"    =     "Latest price" ;
 "涨跌幅"    =     "Quote change" ;
 "更多"    =  "More"  ;
-"疑问解答"    =     "Question Answer" ;
+"帮助中心"    =     "Help center" ;
 "本期出售T量"    =    "Total sales"  ;
 "拼团价"    =     "Purchase price" ;
 " 回本快"    =   "Back to this fast"  ;
@@ -205,14 +203,14 @@
 "已阅读并同意"    =    "Has read and agreed";
 "《购买协议》"    =      "《Rental agreement》";
 "累计总收益"    =     "Total income" ;
-"矿池矿机统计"    =     "Mineral Statistics" ;
-"矿池一"    =      "Mine pool";
-"矿池二"    =     "Mine pool two" ;
+"矿池矿机T量"    =     "Mine pool total" ;
+"A矿池"    =      "A Mine pool";
+"B矿池"    =     "B Mine pool" ;
 "合计数量"    =    "Total amount" ;
-"节点矿机统计"    =      "Node Total";
+"节点矿机T量"    =      "Node Total";
 "主节点T量"    =      "Master node T amount";
 "其他节点T量"    =     "Other node T amount" ;
-"个人矿机"    =    "personal mining machine" ;
+"个人T量"    =    "Personal T amount" ;
 "节点矿机"    =   "Node mine machine" ;
 "节点等级"    =     "Level" ;
 "确认提币"    =    "Confirming"  ;
@@ -253,8 +251,8 @@
 "涨幅度" = "Rise";
 "平台公告" = "Platform Announcement";
 "行业资讯" = "Industry Information";
-"合计数量-T"= "Total quantity-T";
-"团队算力"= "Team";
+"合计T量"= "Total quantity-T";
+"节点T量"= "Node amount";
 "提交"= "Submit";
 "本期出售矿机"= "Sale mine machine";
 "管理费："= "Management fee:";
@@ -330,14 +328,16 @@
 "分享链接更多矿工您将获得平台丰厚的分红奖励" = "Share links more miners you'll get the platform's generous bonus";
 "跳过" = "Skip";
 "进入APP" = "Go to APP";
-
+"请输入正确的用户名" = "Please enter the correct username";
+"请输入用户名" =  "Please enter your username";
+"请输入手机或邮箱" =  "Please enter your phone or email address";
+"用户名6-16字母或数字组合" = "User name 6-16 letter or number combination";
+"用户名" = "User name";
+"找回交易密码" = "Retrieving the transaction password";
+"官网升级中..." = "In the official website upgrade...";
 /*
- 
- 
- 
- 
- 
- 
+
+
  
  
  

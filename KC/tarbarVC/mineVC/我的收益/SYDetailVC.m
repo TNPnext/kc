@@ -110,7 +110,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (_type==1) {
+    if (_type==1 ||_type==2) {
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell3" forIndexPath:indexPath];
         SYModel *mm = _dataArray[indexPath.row];
         UILabel *l1 = [cell.contentView viewWithTag:10];

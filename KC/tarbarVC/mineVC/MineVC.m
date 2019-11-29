@@ -42,6 +42,7 @@
     [self initData];
     
     [self getAllSY];
+    [self getUserinfos];
 }
 
 - (IBAction)goWalletHome:(UIButton *)sender {
@@ -53,6 +54,36 @@
     VC.jttotal = _jttotal;
     [self.navigationController pushViewController:VC animated:1];
     
+}
+
+-(void)getUserinfos
+{
+    kWeakSelf;
+    [NetTool getDataWithInterface:@"rzq.user.info" Parameters:@{} success:^(id  _Nullable responseObject) {
+        switch (TResCode) {
+            case 1:
+            {
+                NSDictionary *dd = [responseObject valueForKey:@"data"];
+                UserModel *user = [UserModel mj_objectWithKeyValues:dd];
+                user.login_uid = [JCTool share].login_uid;
+                [JCTool share].user = user;
+                NSMutableDictionary *impDic = [[NSMutableDictionary alloc]initWithDictionary:dd];
+                [impDic setValue:user.login_uid forKey:@"login_uid"];
+                [JCTool saveJsonWithData:impDic path:Kimportant];
+                weakSelf.invL.text = [NSString stringWithFormat:@"%@:%@",TLOCAL(@"用户名"),[JCTool share].user.username];
+                [weakSelf.levelBtn setTitle:[NSString stringWithFormat:@"M%d",[JCTool share].user.userlevel] forState:(UIControlStateNormal)];
+                if ([JCTool share].user.userlevel>7) {
+                    [weakSelf.levelBtn setTitle:@"MX" forState:(UIControlStateNormal)];
+                }
+            }
+                break;
+
+            default:
+            break;
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 
@@ -100,13 +131,13 @@
 -(void)initViews
 {
     TInitArray;
-    _dataArray = @[@"疑问解答",@"分享链接",@"语言设置",@"安全设置",@"关于我们",@"退出"].mutableCopy;
+    _dataArray = @[@"帮助中心",@"分享链接",@"语言设置",@"安全设置",@"关于我们",@"退出"].mutableCopy;
     NSArray *ttA = @[@"社区矿机",@"我的矿机",@"购买记录"];
     for (UIButton *btn in _btnV.subviews) {
         [btn setTitle:TLOCAL(ttA[btn.tag-10]) forState:(UIControlStateNormal)];
         [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:10];
     }
-    _invL.text = [NSString stringWithFormat:@"UID:%@",[JCTool share].user.mycode];
+    _invL.text = [NSString stringWithFormat:@"%@:%@",TLOCAL(@"用户名"),[JCTool share].user.username];
     [_levelBtn setTitle:[NSString stringWithFormat:@"M%d",[JCTool share].user.userlevel] forState:(UIControlStateNormal)];
     if ([JCTool share].user.userlevel>7) {
         [_levelBtn setTitle:@"MX" forState:(UIControlStateNormal)];

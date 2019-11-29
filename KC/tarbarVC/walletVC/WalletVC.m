@@ -38,7 +38,7 @@ static int hh = 40;
 }
 
 - (IBAction)tcBtnClick:(UIButton *)sender {
-    NSArray *vcA = @[@"OutVC",@"HChongVC"];
+    NSArray *vcA = @[@"HChongVC",@"OutVC"];
     UIViewController *vc = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
     [self.navigationController pushViewController:vc animated:1];
     
@@ -188,7 +188,7 @@ static int hh = 40;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"社区奖励"];
+    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"矿池分红"];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell1" forIndexPath:indexPath];
     UILabel *l1 = [cell.contentView viewWithTag:10];
     l1.text = TLOCAL(arr[indexPath.row]);
@@ -203,7 +203,7 @@ static int hh = 40;
 {
     _seletedIndex = indexPath.row;
     NSArray *sA = @[@"3,4,5",@"3",@"5",@"4"];
-    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"社区奖励"];
+    NSArray *arr = @[@"所有收益",@"矿机收益",@"节点分红",@"矿池分红"];
     WalletListVC *vc = _controllers[_typeSeleted];
     [vc reload:TLOCAL(arr[indexPath.row]) type:sA[indexPath.row]];
     [tableView reloadData];

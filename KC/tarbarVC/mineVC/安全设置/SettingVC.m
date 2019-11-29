@@ -27,8 +27,14 @@
 
 - (IBAction)btnClick:(UIButton *)sender {
     
-    if (sender.tag==1 &&[JCTool share].user.transcodeseted==0) {
+    if (sender.tag>0 &&[JCTool share].user.transcodeseted==0) {
         [JCTool settingPass];
+        return;
+    }
+    if (sender.tag==2) {
+        ForgetPWVC *vc = [JCTool getViewControllerWithID:@"ForgetPWVC" name:@"Login"];
+        vc.isPay = 1;
+        [self.navigationController pushViewController:vc animated:1];
         return;
     }
     ChangePWVC *vc = [JCTool getViewControllerWithID:@"ChangePWVC" name:@"Login"];

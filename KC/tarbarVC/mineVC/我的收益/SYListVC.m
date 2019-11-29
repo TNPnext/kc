@@ -102,7 +102,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *arr = @[@"挖矿收益",@"节点分红",@"社区奖励"];
+    NSArray *arr = @[@"挖矿收益",@"节点分红",@"矿池分红"];
     SYModel *mm = _dataArray[indexPath.row];
     SYDetailVC *vc = [JCTool getViewControllerWithID:@"SYDetailVC"];
     vc.number = [JCTool removeZero:mm.dayamount];

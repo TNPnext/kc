@@ -150,6 +150,38 @@
             </objects>
             <point key="canvasLocation" x="-64" y="3077"/>
         </scene>
+        <!--GWSJZVC-->
+        <scene sceneID="WDI-Ye-pFH">
+            <objects>
+                <viewController storyboardIdentifier="GWSJZVC" id="8nE-r2-dzo" customClass="GWSJZVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmo-7b-fhE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upgrade" translatesAutoresizingMaskIntoConstraints="NO" id="fDv-VF-tSX">
+                                <rect key="frame" x="107" y="198" width="200" height="200"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="官网升级中..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmn-ve-cha" customClass="LabelL">
+                                <rect key="frame" x="156.66666666666666" y="408" width="100.66666666666666" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="fDv-VF-tSX" firstAttribute="centerX" secondItem="bmo-7b-fhE" secondAttribute="centerX" id="8Zi-oe-WZK"/>
+                            <constraint firstItem="fDv-VF-tSX" firstAttribute="centerY" secondItem="bmo-7b-fhE" secondAttribute="centerY" constant="-70" id="KuO-2j-wCU"/>
+                            <constraint firstItem="Fmn-ve-cha" firstAttribute="centerX" secondItem="bmo-7b-fhE" secondAttribute="centerX" id="Yxc-5q-PHn"/>
+                            <constraint firstItem="Fmn-ve-cha" firstAttribute="top" secondItem="fDv-VF-tSX" secondAttribute="bottom" constant="10" id="r02-n1-2BL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hYJ-Ot-heV"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mU2-7C-jKq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="591" y="3072"/>
+        </scene>
         <!--My PrductVC-->
         <scene sceneID="YoZ-9S-Ud0">
             <objects>
@@ -966,10 +998,10 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7q-6p-Hve">
                                                             <rect key="frame" x="10" y="10" width="192" height="99"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_kjgm" translatesAutoresizingMaskIntoConstraints="NO" id="Gm1-Kq-IiK">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_xmgk" translatesAutoresizingMaskIntoConstraints="NO" id="Gm1-Kq-IiK">
                                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="99"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿机购买" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FId-qy-onF" customClass="LabelL">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目概况" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FId-qy-onF" customClass="LabelL">
                                                                     <rect key="frame" x="20" y="30.666666666666686" width="96" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1000,10 +1032,10 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W7M-aJ-FMb">
                                                             <rect key="frame" x="212" y="10" width="192" height="99"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_xmgk" translatesAutoresizingMaskIntoConstraints="NO" id="1lS-9W-foN">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home_kjgm" translatesAutoresizingMaskIntoConstraints="NO" id="1lS-9W-foN">
                                                                     <rect key="frame" x="0.0" y="0.0" width="192" height="99"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目概况" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV0-0j-O7d" customClass="LabelL">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿机购买" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RV0-0j-O7d" customClass="LabelL">
                                                                     <rect key="frame" x="20" y="30.666666666666686" width="96" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1111,42 +1143,42 @@
                                                 <view tag="120" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-QN-XmC" customClass="XIBView">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="95"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr4-0F-j3Z">
-                                                            <rect key="frame" x="117" y="10" width="257" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr4-0F-j3Z">
+                                                            <rect key="frame" x="0.0" y="10" width="232.33333333333334" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-4M-rnA">
-                                                            <rect key="frame" x="117" y="70.666666666666671" width="31" height="14.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="70.666666666666671" width="31" height="14.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.70980392160000005" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wy9-eM-2k3">
-                                                            <rect key="frame" x="12" y="10" width="90" height="75"/>
+                                                            <rect key="frame" x="242.33333333333331" y="10" width="141.66666666666669" height="85"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="wy9-eM-2k3" secondAttribute="height" multiplier="1.2:1" id="cWJ-0o-Ulf"/>
+                                                                <constraint firstAttribute="height" constant="85" id="Eai-Gn-gJY"/>
+                                                                <constraint firstAttribute="width" secondItem="wy9-eM-2k3" secondAttribute="height" multiplier="5:3" id="cWJ-0o-Ulf"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkh-yj-TUE">
-                                                            <rect key="frame" x="117" y="29.999999999999996" width="257" height="14.333333333333332"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="13" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkh-yj-TUE">
+                                                            <rect key="frame" x="0.0" y="36" width="232.33333333333334" height="14.333333333333336"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="pkh-yj-TUE" secondAttribute="trailing" constant="10" id="0rx-z5-D4L"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wy9-eM-2k3" secondAttribute="trailing" id="2WK-Uv-WC7"/>
                                                         <constraint firstAttribute="bottom" secondItem="N2J-4M-rnA" secondAttribute="bottom" constant="10" id="3IH-q7-pz0"/>
-                                                        <constraint firstItem="pkh-yj-TUE" firstAttribute="top" secondItem="nr4-0F-j3Z" secondAttribute="bottom" constant="2" id="3i9-Xp-WNB"/>
-                                                        <constraint firstItem="nr4-0F-j3Z" firstAttribute="leading" secondItem="wy9-eM-2k3" secondAttribute="trailing" constant="15" id="3rm-gF-gvQ"/>
-                                                        <constraint firstItem="pkh-yj-TUE" firstAttribute="leading" secondItem="wy9-eM-2k3" secondAttribute="trailing" constant="15" id="AE4-3o-2WF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="nr4-0F-j3Z" secondAttribute="trailing" constant="10" id="GRn-T7-Zi3"/>
-                                                        <constraint firstItem="wy9-eM-2k3" firstAttribute="leading" secondItem="bEf-QN-XmC" secondAttribute="leading" constant="12" id="GdF-hX-nRY"/>
-                                                        <constraint firstAttribute="bottom" secondItem="wy9-eM-2k3" secondAttribute="bottom" constant="10" id="qBH-3O-vFy"/>
+                                                        <constraint firstItem="pkh-yj-TUE" firstAttribute="top" secondItem="nr4-0F-j3Z" secondAttribute="bottom" constant="8" id="3i9-Xp-WNB"/>
+                                                        <constraint firstItem="wy9-eM-2k3" firstAttribute="leading" secondItem="nr4-0F-j3Z" secondAttribute="trailing" constant="10" id="ZWR-dV-st9"/>
+                                                        <constraint firstItem="pkh-yj-TUE" firstAttribute="leading" secondItem="N2J-4M-rnA" secondAttribute="leading" id="d0Q-FA-amF"/>
+                                                        <constraint firstItem="nr4-0F-j3Z" firstAttribute="leading" secondItem="bEf-QN-XmC" secondAttribute="leading" id="kZr-cn-JPh"/>
                                                         <constraint firstItem="nr4-0F-j3Z" firstAttribute="top" secondItem="bEf-QN-XmC" secondAttribute="top" constant="10" id="sga-ps-CMb"/>
+                                                        <constraint firstItem="wy9-eM-2k3" firstAttribute="leading" secondItem="pkh-yj-TUE" secondAttribute="trailing" constant="10" id="v30-jC-THg"/>
                                                         <constraint firstItem="wy9-eM-2k3" firstAttribute="top" secondItem="bEf-QN-XmC" secondAttribute="top" constant="10" id="xWB-1i-lEc"/>
                                                         <constraint firstItem="N2J-4M-rnA" firstAttribute="leading" secondItem="nr4-0F-j3Z" secondAttribute="leading" id="y6C-Dp-Qdd"/>
                                                     </constraints>
@@ -2301,7 +2333,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="社区奖励" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2Z-sT-08C" customClass="LabelL">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿池分红" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2Z-sT-08C" customClass="LabelL">
                                                         <rect key="frame" x="41.666666666666686" y="31.666666666666682" width="45" height="13.333333333333332"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2384,8 +2416,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTo-KC-2Zb">
                                 <rect key="frame" x="0.0" y="44" width="414" height="145"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿池矿机统计" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOr-Vr-tUO" customClass="LabelL">
-                                        <rect key="frame" x="20" y="0.0" width="86" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿池矿机T量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOr-Vr-tUO" customClass="LabelL">
+                                        <rect key="frame" x="20" y="0.0" width="80.333333333333329" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2399,8 +2431,8 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sanxia_top" translatesAutoresizingMaskIntoConstraints="NO" id="Xur-Ph-kfz">
                                                         <rect key="frame" x="0.0" y="0.0" width="184.66666666666666" height="120"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿池一" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qad-yv-pkM" customClass="LabelL">
-                                                        <rect key="frame" x="15" y="15" width="43" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A矿池" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qad-yv-pkM" customClass="LabelL">
+                                                        <rect key="frame" x="15" y="15" width="38" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2417,8 +2449,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计数量-T" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-Lx-0SR" customClass="LabelL">
-                                                        <rect key="frame" x="15" y="62" width="72" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计T量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6b-Lx-0SR" customClass="LabelL">
+                                                        <rect key="frame" x="14.999999999999996" y="62" width="51.666666666666657" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2446,8 +2478,8 @@
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sanxia_top" translatesAutoresizingMaskIntoConstraints="NO" id="5x3-QS-HiS">
                                                         <rect key="frame" x="0.0" y="0.0" width="184.33333333333334" height="120"/>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿池二" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IJ-cu-dZZ" customClass="LabelL">
-                                                        <rect key="frame" x="15" y="15" width="43" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B矿池" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IJ-cu-dZZ" customClass="LabelL">
+                                                        <rect key="frame" x="14.999999999999996" y="15" width="37.666666666666657" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2464,8 +2496,8 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计数量-T" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CO-gl-ETy" customClass="LabelL">
-                                                        <rect key="frame" x="15" y="62" width="72" height="17"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计T量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9CO-gl-ETy" customClass="LabelL">
+                                                        <rect key="frame" x="14.999999999999996" y="62" width="51.666666666666657" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" white="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2515,8 +2547,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-M5-iPE" customClass="XIBView">
                                 <rect key="frame" x="0.0" y="209" width="414" height="155"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="节点矿机统计" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-eV-uqS" customClass="LabelL">
-                                        <rect key="frame" x="20" y="10" width="86" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="节点矿机T量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-eV-uqS" customClass="LabelL">
+                                        <rect key="frame" x="20" y="10" width="80.333333333333329" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2597,7 +2629,7 @@
                                             <constraint firstItem="VcS-Sj-6ft" firstAttribute="leading" secondItem="41k-vT-tyD" secondAttribute="leading" id="xwM-Rb-Uo3"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UID" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbt-wh-0rb">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbt-wh-0rb" customClass="LabelL">
                                         <rect key="frame" x="0.0" y="115" width="103.66666666666667" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="hlz-uC-H33"/>
@@ -2612,13 +2644,13 @@
                                         <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人矿机" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bel-pi-Aqw" customClass="LabelL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个人T量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bel-pi-Aqw" customClass="LabelL">
                                         <rect key="frame" x="206.99999999999997" y="126.66666666666669" width="103.66666666666666" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="团队算力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4N-S0-LP4" customClass="LabelL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="节点T量" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4N-S0-LP4" customClass="LabelL">
                                         <rect key="frame" x="310.66666666666669" y="126.66666666666669" width="103.33333333333331" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3706,7 +3738,7 @@
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="到账数量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aes-Cc-jpe">
-                                <rect key="frame" x="55.666666666666657" y="509" width="69.333333333333343" height="21"/>
+                                <rect key="frame" x="55.666666666666664" y="509" width="69.333333333333343" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -5344,7 +5376,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="12" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-2000.0000USDT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8W-tM-aPm">
-                                                    <rect key="frame" x="113.66666666666666" y="15" width="115.66666666666666" height="17"/>
+                                                    <rect key="frame" x="109.33333333333331" y="15" width="115.66666666666669" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.31764705879999999" green="0.57647058819999997" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -5375,11 +5407,11 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="mtt-ZT-4o1" firstAttribute="leading" secondItem="sWN-Ih-86e" secondAttribute="leading" constant="15" id="1DJ-vj-YoW"/>
-                                                <constraint firstItem="n8W-tM-aPm" firstAttribute="leading" secondItem="Dq3-UY-Bfj" secondAttribute="trailing" constant="70" id="2Tr-Ji-5ik"/>
                                                 <constraint firstItem="n8W-tM-aPm" firstAttribute="centerY" secondItem="BJc-Tt-Ee7" secondAttribute="centerY" id="Frq-VN-kLW"/>
                                                 <constraint firstItem="VZi-Qa-0JV" firstAttribute="leading" secondItem="Dq3-UY-Bfj" secondAttribute="leading" id="Myb-GE-CME"/>
                                                 <constraint firstItem="Dq3-UY-Bfj" firstAttribute="centerY" secondItem="n8W-tM-aPm" secondAttribute="centerY" id="RJI-cO-RB1"/>
                                                 <constraint firstItem="VZi-Qa-0JV" firstAttribute="top" secondItem="Dq3-UY-Bfj" secondAttribute="bottom" constant="10" id="Uqt-0f-3QD"/>
+                                                <constraint firstItem="n8W-tM-aPm" firstAttribute="centerX" secondItem="sWN-Ih-86e" secondAttribute="centerX" constant="-40" id="WHQ-hG-naT"/>
                                                 <constraint firstAttribute="trailing" secondItem="mtt-ZT-4o1" secondAttribute="trailing" constant="15" id="ahH-xX-rii"/>
                                                 <constraint firstItem="Dq3-UY-Bfj" firstAttribute="leading" secondItem="sWN-Ih-86e" secondAttribute="leading" constant="15" id="dgx-0A-Kvo"/>
                                                 <constraint firstItem="GPQ-3A-KHi" firstAttribute="trailing" secondItem="BJc-Tt-Ee7" secondAttribute="trailing" id="eGY-qt-q2A"/>
@@ -5504,16 +5536,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gaik_ys" translatesAutoresizingMaskIntoConstraints="NO" id="dba-HT-7yx">
-                                                    <rect key="frame" x="15" y="20" width="4" height="22"/>
+                                                    <rect key="frame" x="15" y="20" width="2" height="11"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Miner X平台是依托于矿场、矿机及相应的算力和存储空间而成立的，算力服务和存储服务是Miner X最核心也是最根本的业务，用户可通过平台享受矿机定制、交易及托管的多元化的矿机服务。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfR-c3-xqQ">
-                                                    <rect key="frame" x="15" y="55" width="384" height="45"/>
+                                                    <rect key="frame" x="15" y="49.666666666666657" width="384" height="50.333333333333343"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.31372549019607843" green="0.38431372549019605" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="矿机服务" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7s-0Q-UGT">
-                                                    <rect key="frame" x="29.000000000000004" y="22" width="61.333333333333343" height="18"/>
+                                                    <rect key="frame" x="27.000000000000004" y="16.666666666666668" width="61.333333333333343" height="18.000000000000004"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -5993,9 +6025,9 @@
         <image name="guide2" width="293.66665649414062" height="212.66667175292969"/>
         <image name="guide3" width="293.66665649414062" height="212.66667175292969"/>
         <image name="guide_bottom" width="375" height="330.33334350585938"/>
-        <image name="home_kjgm" width="170" height="98.333335876464844"/>
+        <image name="home_kjgm" width="176" height="98.333335876464844"/>
         <image name="home_saixuanf" width="5.3333334922790527" height="10.333333015441895"/>
-        <image name="home_xmgk" width="170" height="98.333335876464844"/>
+        <image name="home_xmgk" width="176" height="98.333335876464844"/>
         <image name="home_zb_rig" width="4.3333334922790527" height="7.3333334922790527"/>
         <image name="jian_white" width="11" height="20.333333969116211"/>
         <image name="kg_item0" width="11" height="10.666666984558105"/>
@@ -6018,6 +6050,7 @@
         <image name="shouyi_top" width="366.33334350585938" height="185"/>
         <image name="sm_scan" width="13" height="12"/>
         <image name="tibi_top" width="366.33334350585938" height="151.33332824707031"/>
+        <image name="upgrade" width="200" height="200"/>
         <image name="wallet_bottom" width="12" height="11.333333015441895"/>
         <image name="wallet_cb_btn" width="16.666666030883789" height="14.333333015441895"/>
         <image name="wallet_chongbi" width="291" height="370.66665649414062"/>

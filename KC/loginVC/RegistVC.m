@@ -12,12 +12,13 @@
 {
     BOOL checkXY;
 }
-
+@property (weak, nonatomic) IBOutlet UITextField *inputF0;
 @property (weak, nonatomic) IBOutlet UITextField *inputF1;
 @property (weak, nonatomic) IBOutlet UITextField *inputF2;
 @property (weak, nonatomic) IBOutlet UITextField *inputF3;
 @property (weak, nonatomic) IBOutlet UITextField *inputF4;
 @property (weak, nonatomic) IBOutlet UITextField *inputF5;
+
 @property (weak, nonatomic) IBOutlet UIButton*seBtn;
 @property (nonatomic,strong) NSDictionary *xieyiDic;
 
@@ -33,10 +34,10 @@
     
     [self initViews];
     [self getzlxy];
-#ifdef DEBUG
-    _inputF1.text = @"18983387045";
-    _inputF4.text = @"p5pggs";
-#endif
+//#ifdef DEBUG
+//    _inputF1.text = @"18983387045";
+//    _inputF4.text = @"p5pggs";
+//#endif
     
    
 }
@@ -123,15 +124,15 @@
 
 -(void)regisUP
 {
-    if (!checkXY) {
-        TShowMessage(@"请先勾选同意注册协议");
+    if (![_inputF0.text isPassWord]) {
+        TShowMessage(@"用户名6-16字母或数字组合");
         return;
     }
     if (![self.inputF1.text isPhoneNumber]&&![self.inputF1.text isEmail]) {
         TShowMessage(@"请输入正确的手机号或邮箱");
         return;
     }
-    if (_inputF4.text.length!=6)
+    if (_inputF2.text.length!=6)
     {
         TShowMessage(@"验证码不正确");
         return;
@@ -151,9 +152,14 @@
         TShowMessage(@"邀请码不正确");
         return;
     }
+    if (!checkXY) {
+        TShowMessage(@"请先勾选同意注册协议");
+        return;
+    }
     kWeakSelf;
     TParms;
-    [parms setValue:_inputF1.text forKey:@"username"];
+    [parms setValue:_inputF0.text forKey:@"username"];
+    [parms setValue:_inputF1.text forKey:@"phonemail"];
     [parms setValue:_inputF2.text forKey:@"password"];
     [parms setValue:_inputF4.text forKey:@"invcode"];
     [parms setValue:_inputF5.text forKey:@"code"];
@@ -198,17 +204,21 @@
             {
                 TShowResMsg;
                 [weakSelf btnTime:sender];
+                
             }
                 break;
                 
             default:
-                TShowResMsg;
+            {
+                sender.selected = 0;
+            }
                 break;
         }
         
         
     } failure:^(NSError *error) {
         TShowNetError;
+        sender.selected = 0;
     }];
     
 }

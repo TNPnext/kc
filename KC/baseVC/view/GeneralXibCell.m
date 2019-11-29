@@ -24,7 +24,7 @@
     _model = model;
     _label1.text = model.coinname;
     _label2.text = [JCTool removeZero:_model.price];
-    _cnyL.text = [NSString stringWithFormat:@"￥%@",[JCTool removeZero:_model.cnyprice]];
+    _cnyL.text = [NSString stringWithFormat:@"≈￥%@",[JCTool removeZero:_model.cnyprice]];
     _label2.textColor = ColorWithHex(@"00B88E");
     _btn.backgroundColor = ColorWithHex(@"00B88E");
     //F5353D 红 /00B88E

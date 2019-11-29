@@ -57,7 +57,7 @@ static int hh = 40;
     
     
     NSMutableArray* titles = [NSMutableArray array];
-    NSArray *arr = @[@"挖矿收益",@"节点分红",@"社区奖励"];
+    NSArray *arr = @[@"挖矿收益",@"节点分红",@"矿池分红"];
     NSArray *type = @[@"rzq.tradecreditorder.get",@"rzq.order_sq.get",@"rzq.order_ab.get"];
     for (int i = 0;i<arr.count;i++)
     {

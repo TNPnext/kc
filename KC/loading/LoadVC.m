@@ -114,13 +114,13 @@
             [JCTool getWindow].rootViewController = guide;
             return;
         }
-        
-    
         UserModel *user = [UserModel mj_objectWithKeyValues:dic];
         [JCTool share].user = user;
+        [JCTool goHomePage];
+        
         [self getConfig];
         [self getzlxy];
-        [JCTool goHomePage];
+//
     }
 }
 

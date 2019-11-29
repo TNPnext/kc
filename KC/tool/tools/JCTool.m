@@ -33,7 +33,7 @@ static JCTool *tool = nil;
     return @"http://192.168.1.200:5002/server";
 //    return @"http://27.159.82.32:8034/server";
 #endif
-    // return @"";
+     return @"https://a.minerx.org/server";
     NSArray *urlArr = KOutObj(@"Urls");
     if ([urlArr isKindOfClass:[NSArray class]]&&urlArr.count==0)
     {

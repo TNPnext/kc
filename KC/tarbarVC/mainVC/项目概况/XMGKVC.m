@@ -66,13 +66,20 @@
         case 14:
         {
             //官网
-            WebViewController *webV = [WebViewController new];
-            
-            webV.t_tilte = TLOCAL(@"基金会官网");
             NSDictionary *dic = [[JCTool share].configDic valueForKey:@"501"];
-            webV.reqUrl = [dic valueForKey:@"val"];
+            NSString *ss = [dic valueForKey:@"val"];
+            if (kStringIsEmpty(ss)) {
+                UIViewController *vc = [JCTool getViewControllerWithID:@"GWSJZVC"];
+                [self.navigationController pushViewController:vc animated:1];
+                return;
+            }else
+            {
+                WebViewController *webV = [WebViewController new];
+                webV.t_tilte = TLOCAL(@"基金会官网");
+                webV.reqUrl = ss;
+                [self.navigationController pushViewController:webV animated:1];
+            }
             
-            [self.navigationController pushViewController:webV animated:1];
         }
             break;
         default:
@@ -81,5 +88,16 @@
     
 }
 
+
+@end
+
+
+@implementation GWSJZVC
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.customNavBar.title = TLOCAL(@"基金会官网");;
+}
 
 @end

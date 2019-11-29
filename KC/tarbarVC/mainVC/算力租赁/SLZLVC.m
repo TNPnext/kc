@@ -328,13 +328,13 @@
     NSString *ss = [JCTool removeZero:_model.price*[_numberF.text intValue]];
     _zjL.text = [NSString stringWithFormat:@"%@U",ss];
     
-    _totL.text = [NSString stringWithFormat:@"%@U",_zjL.text];
+    _totL.text = _zjL.text;
     _name2.text = _nameL.text;
     _price2.text = _priceL.text;
     _numL.text = [NSString stringWithFormat:@"%@T",_numberF.text];
     _snumL.text = _numL.text;
     _price2L.text = _priceL.text;
-    _pricea2L.attributedText = [NSString addRemoveLineOnString:[NSString stringWithFormat:@"%@:%@U/T",TLOCAL(@"优惠价"),[JCTool removeZero:_model.aprice]]];
+    _pricea2L.attributedText = [NSString addRemoveLineOnString:[NSString stringWithFormat:@"%@U/T",[JCTool removeZero:_model.aprice]]];
     NSDictionary *land = KOutObj(Klanguage);
     switch ([[land valueForKey:@"idx"] intValue]) {
         case 0:

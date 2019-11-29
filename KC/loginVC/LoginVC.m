@@ -28,7 +28,7 @@
 #ifdef DEBUG
 //    _inputF1.text = @"1402436508@qq.com";
 //    _inputF2.text = @"123456";
-    _inputF1.text = @"18983387045";
+    _inputF1.text = @"oooooo";
     _inputF2.text = @"pppppp";
 #endif
     
@@ -58,8 +58,8 @@
         [self.navigationController pushViewController:vc animated:1];
         return;
     }
-    if (![self.inputF1.text isPhoneNumber]&&![self.inputF1.text isEmail]) {
-        TShowMessage(@"请输入正确的手机号或邮箱");
+    if (self.inputF1.text.length<6) {
+        TShowMessage(@"请输入正确的用户名");
         return;
     }
     if (![_inputF2.text isPassWord])

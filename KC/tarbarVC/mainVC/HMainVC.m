@@ -136,9 +136,12 @@
                         if (kStringIsEmpty(mycode)) {
                             mycode = @"";
                         }
+                        if (mycode.length>0) {
+                            mycode = [NSString stringWithFormat:@"%@**%@",[mycode substringToIndex:2],[mycode substringWithRange:NSMakeRange(mycode.length-2, 2)]];
+                        }
                         CGFloat buycount = [[dd valueForKey:@"buycount"] doubleValue];
                         
-                        content = [NSString stringWithFormat:@"%@ %@ %@T%@",mycode,TLOCAL(@"成功购买"),[JCTool removeZero:buycount],TLOCAL(@"算力")];
+                        content = [NSString stringWithFormat:@"%@ %@ %@T",mycode,TLOCAL(@"成功购买"),[JCTool removeZero:buycount]];
                         
                         [daA addObject:content];
                     }
@@ -292,7 +295,7 @@
 
 - (IBAction)itemBtnClick:(UIButton *)sender {
 
-    NSArray *vcA = @[@"SLZLVC",@"XMGKVC"];
+    NSArray *vcA = @[@"XMGKVC",@"SLZLVC"];
     BaseViewController *vc = [JCTool getViewControllerWithID:vcA[sender.tag-10]];
     [self.navigationController pushViewController:vc animated:1];
 

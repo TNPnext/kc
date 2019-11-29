@@ -9,7 +9,7 @@
 #import "ForgetPWVC.h"
 
 @interface ForgetPWVC ()
-
+@property (weak, nonatomic) IBOutlet UITextField *inputF0;
 @property (weak, nonatomic) IBOutlet UITextField *inputF1;
 @property (weak, nonatomic) IBOutlet UITextField *inputF2;
 @property (weak, nonatomic) IBOutlet UITextField *inputF3;
@@ -35,8 +35,10 @@
      self.customNavBar.title = TLOCAL(@"找回密码");
     _isEmail = 0;
     if ([JCTool isLogin]) {
+        _inputF0.userInteractionEnabled = 0;
         _inputF1.userInteractionEnabled = 0;
-        if ([JCTool share].user.mobile.length>0) {
+        if ([JCTool share].user.username.length>0) {
+            _inputF0.text = [JCTool share].user.username;
             _inputF1.text = [JCTool share].user.mobile;
         }
     }
@@ -46,6 +48,11 @@
 
 - (IBAction)nextBtnClick:(UIButton *)sender
 {
+    if (![_inputF0.text isPassWord])
+    {
+        TShowMessage(@"用户名6-16字母或数字组合");
+        return;
+    }
     if (![self.inputF1.text isPhoneNumber]&&![self.inputF1.text isEmail]) {
         TShowMessage(@"请输入正确的手机号或邮箱");
         return;
@@ -79,7 +86,7 @@
 {
     TParms;
     kWeakSelf;
-    [parms setValue:_inputF1.text forKey:@"username"];
+    [parms setValue:_inputF0.text forKey:@"username"];
     [NetTool getDataWithInterface:@"rzq.user.chick" Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode) {
             case 1:
@@ -103,8 +110,6 @@
     kWeakSelf;
     TParms;
     NSString *shapass = [NSString stringWithFormat:@"%@:%@",_mycode,_inputF3.text];
-    [parms setValue:_inputF1.text forKey:@"username"];
-    
     [parms setValue:_inputF2.text forKey:@"code"];
     NSString *interf = @"rzq.user.backpwd";
     if (_isPay) {
@@ -112,6 +117,8 @@
         [parms setValue:[shapass sha256String] forKey:@"paypassword"];
     }else
     {
+        [parms setValue:_inputF0.text forKey:@"username"];
+        [parms setValue:_inputF1.text forKey:@"phonemail"];
         [parms setValue:[shapass sha256String] forKey:@"newpassword"];
     }
     //
@@ -165,6 +172,7 @@
     }
     _inputF1.placeholder = placeS;
     if ([JCTool isLogin]) {
+        _inputF0.userInteractionEnabled = 0;
         _inputF1.userInteractionEnabled = 0;
         if (_isEmail &&[JCTool share].user.mail.length>0) {
             _inputF1.text = [JCTool share].user.mail;
