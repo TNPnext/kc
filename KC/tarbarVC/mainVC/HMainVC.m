@@ -139,9 +139,9 @@
                         if (mycode.length>0) {
                             mycode = [NSString stringWithFormat:@"%@**%@",[mycode substringToIndex:2],[mycode substringWithRange:NSMakeRange(mycode.length-2, 2)]];
                         }
-                        CGFloat buycount = [[dd valueForKey:@"buycount"] doubleValue];
+                        NSString *buycount = [dd valueForKey:@"buycount"];
                         
-                        content = [NSString stringWithFormat:@"%@ %@ %@T",mycode,TLOCAL(@"成功购买"),[JCTool removeZero:buycount]];
+                        content = [NSString stringWithFormat:@"%@ %@ %@T",mycode,TLOCAL(@"成功购买"),buycount];
                         
                         [daA addObject:content];
                     }

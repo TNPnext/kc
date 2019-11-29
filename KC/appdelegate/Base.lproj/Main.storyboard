@@ -1140,7 +1140,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="105"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view tag="120" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-QN-XmC" customClass="XIBView">
+                                                <view tag="120" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bEf-QN-XmC">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="95"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr4-0F-j3Z">
@@ -1150,7 +1150,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2J-4M-rnA">
-                                                            <rect key="frame" x="0.0" y="70.666666666666671" width="31" height="14.333333333333329"/>
+                                                            <rect key="frame" x="0.0" y="80.666666666666671" width="31" height="14.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" red="0.70980392160000005" green="0.70980392160000005" blue="0.70980392160000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1172,8 +1172,8 @@
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="wy9-eM-2k3" secondAttribute="trailing" id="2WK-Uv-WC7"/>
-                                                        <constraint firstAttribute="bottom" secondItem="N2J-4M-rnA" secondAttribute="bottom" constant="10" id="3IH-q7-pz0"/>
                                                         <constraint firstItem="pkh-yj-TUE" firstAttribute="top" secondItem="nr4-0F-j3Z" secondAttribute="bottom" constant="8" id="3i9-Xp-WNB"/>
+                                                        <constraint firstItem="N2J-4M-rnA" firstAttribute="bottom" secondItem="wy9-eM-2k3" secondAttribute="bottom" id="IVK-4Z-JNE"/>
                                                         <constraint firstItem="wy9-eM-2k3" firstAttribute="leading" secondItem="nr4-0F-j3Z" secondAttribute="trailing" constant="10" id="ZWR-dV-st9"/>
                                                         <constraint firstItem="pkh-yj-TUE" firstAttribute="leading" secondItem="N2J-4M-rnA" secondAttribute="leading" id="d0Q-FA-amF"/>
                                                         <constraint firstItem="nr4-0F-j3Z" firstAttribute="leading" secondItem="bEf-QN-XmC" secondAttribute="leading" id="kZr-cn-JPh"/>
@@ -1182,17 +1182,6 @@
                                                         <constraint firstItem="wy9-eM-2k3" firstAttribute="top" secondItem="bEf-QN-XmC" secondAttribute="top" constant="10" id="xWB-1i-lEc"/>
                                                         <constraint firstItem="N2J-4M-rnA" firstAttribute="leading" secondItem="nr4-0F-j3Z" secondAttribute="leading" id="y6C-Dp-Qdd"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borColor">
-                                                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="10"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borW">
-                                                            <real key="value" value="0.0"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
