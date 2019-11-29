@@ -180,7 +180,12 @@
     UILabel *l3 = [vv viewWithTag:12];
     UILabel *l4 = [vv viewWithTag:13];
     l1.text = [NSString stringWithFormat:@"%@",[dic valueForKey:@"mycode"]];
+    int level = [[dic valueForKey:@"userlevel"] intValue];
     l2.text = [NSString stringWithFormat:@"M%@",[dic valueForKey:@"userlevel"]];
+    if (level>7) {
+        l2.text = @"MX";
+    }
+    
     l3.text = [NSString stringWithFormat:@"%@",[dic valueForKey:@"selfadded"]];
     l4.text = [NSString stringWithFormat:@"%@",[dic valueForKey:@"totaladded"]];
     return cell;

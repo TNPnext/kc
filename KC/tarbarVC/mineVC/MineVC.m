@@ -104,10 +104,14 @@
     NSArray *ttA = @[@"社区矿机",@"我的矿机",@"购买记录"];
     for (UIButton *btn in _btnV.subviews) {
         [btn setTitle:TLOCAL(ttA[btn.tag-10]) forState:(UIControlStateNormal)];
-        [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:15];
+        [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleTop) imageTitleSpace:10];
     }
     _invL.text = [NSString stringWithFormat:@"UID:%@",[JCTool share].user.mycode];
     [_levelBtn setTitle:[NSString stringWithFormat:@"M%d",[JCTool share].user.userlevel] forState:(UIControlStateNormal)];
+    if ([JCTool share].user.userlevel>7) {
+        [_levelBtn setTitle:@"MX" forState:(UIControlStateNormal)];
+    }
+    
    
 }
 

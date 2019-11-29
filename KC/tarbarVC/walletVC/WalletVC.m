@@ -23,13 +23,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *addressL;
 @property (weak, nonatomic) IBOutlet UIView *chooseV;
 
+@property (weak, nonatomic) IBOutlet UIView *btnBgV;
 @property (strong, nonatomic) SPPageMenu* pageMenu;
 
 @property (strong, nonatomic) UIScrollView* scrollView;
 @property (strong, nonatomic) NSMutableArray* controllers;
 @end
 static int hh = 40;
-#define SSHH (SCREEN_HEIGHT -BOTTOM_SAFE_SPACE -264)
+#define SSHH (SCREEN_HEIGHT -BOTTOM_SAFE_SPACE-NAV_HEIGHT -180-70-40)
 @implementation WalletVC
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -59,6 +60,15 @@ static int hh = 40;
     KAddNoti(@selector(reloadUI), KMMChange);
     _typeSeleted = 0;
     _seletedIndex = 0;
+    for (UIButton *btn in _btnBgV.subviews) {
+        if (btn.tag>9) {
+            [btn setTitle:TLOCAL(btn.titleLabel.text) forState:(UIControlStateNormal)];
+            [btn layoutButtonWithEdgeInsetsStyle:(ButtonEdgeInsetsStyleLeft) imageTitleSpace:5];
+        }
+        
+    }
+    
+    
     [self reloadUI];
     [self initView];
     
@@ -136,7 +146,7 @@ static int hh = 40;
 #pragma mark - getter
 -(SPPageMenu *)pageMenu {
     if (!_pageMenu) {
-        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(0, 10, SCREEN_WIDTH, hh) trackerStyle:SPPageMenuTrackerStyleLineAttachment];
+        _pageMenu = [SPPageMenu pageMenuWithFrame:CGRectMake(0, 70, SCREEN_WIDTH, hh) trackerStyle:SPPageMenuTrackerStyleLineAttachment];
         _pageMenu.permutationWay = SPPageMenuPermutationWayNotScrollEqualWidths;
         _pageMenu.selectedItemTitleColor = ColorWithHex(@"#5193F4");
         _pageMenu.backgroundColor = [UIColor whiteColor];
@@ -150,7 +160,7 @@ static int hh = 40;
 
 -(UIScrollView *)scrollView {
     if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 54, SCREEN_WIDTH, SSHH)];
+        _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 124, SCREEN_WIDTH, SSHH)];
         _scrollView.pagingEnabled = YES;
         //_scrollView.backgroundColor = [UIColor redColor];
         _scrollView.showsHorizontalScrollIndicator = NO;

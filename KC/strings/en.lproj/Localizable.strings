@@ -79,12 +79,14 @@
 "设置交易密码"    =     "Setting a transaction password" ;
 "交易密码设置成功"    =      "Transaction password set successfully";
 "提币"    =   "Ticking coins" ;
+"提 币"    =   "Ticking coins" ;
 "请输入或扫描转出地址"    =  "Please enter or scan the transfer address"  ;
 "转出数量不能小于等于0"    =    "The number of transfers cannot be less than or equal to 0" ;
 "转出数量不能小于"    =     "The number of transfers cannot be less than" ;
 "可用余额不足"    =      "Insufficient balance available";
 "提币成功,到账情况请以主链处理结果为准"    =   "To the success of the coin, please refer to the results of the main chain processing."  ;
 "充币"    =      "filling coins";
+"充 币"    =      "filling coins";
 "地址已复制到粘贴板"    =    "Address has been copied to the pasteboard";
 "bill"  ;
 "账单"    =   "Bill" ;
