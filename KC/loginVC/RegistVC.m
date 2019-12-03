@@ -137,17 +137,17 @@
         TShowMessage(@"验证码不正确");
         return;
     }
-    if (![_inputF2.text isPassWord])
+    if (![_inputF3.text isPassWord])
     {
         TShowMessage(@"密码6-16字母或数字组合");
         return;
     }
-    if (![_inputF2.text isEqualToString:_inputF3.text])
+    if (![_inputF3.text isEqualToString:_inputF4.text])
     {
         TShowMessage(@"两次输入的密码不一致");
         return;
     }
-    if (_inputF4.text.length<1)
+    if (_inputF5.text.length<1)
     {
         TShowMessage(@"邀请码不正确");
         return;
@@ -160,9 +160,9 @@
     TParms;
     [parms setValue:_inputF0.text forKey:@"username"];
     [parms setValue:_inputF1.text forKey:@"phonemail"];
-    [parms setValue:_inputF2.text forKey:@"password"];
-    [parms setValue:_inputF4.text forKey:@"invcode"];
-    [parms setValue:_inputF5.text forKey:@"code"];
+    [parms setValue:_inputF3.text forKey:@"password"];
+    [parms setValue:_inputF5.text forKey:@"invcode"];
+    [parms setValue:_inputF2.text forKey:@"code"];
     [NetTool getDataWithInterface:@"rzq.user.signup" Parameters:parms success:^(id  _Nullable responseObject) {
         switch (TResCode)
         {

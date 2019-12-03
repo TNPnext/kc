@@ -32,6 +32,15 @@
     [JCTool querybalance];
 
     KPostNoti(@"viewWillAppear");
+    
+    
+    [SocketTool share].loadingBlock = ^{
+        static int conunt = 0;
+        conunt++;
+        if (conunt%30==0) {
+            KPostNoti(@"reloadHQ");
+        }
+    };
 }
 
 

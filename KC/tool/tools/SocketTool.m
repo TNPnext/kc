@@ -40,7 +40,7 @@ static SocketTool *scockTool = nil;
 
 -(void)initSocketsocket
 {
-    NSString *host = @"ws://pool.minerx.org:8550/websocketXX";
+    NSString *host = @"ws://a.minerx.org:8550/websocketXX";
 //#ifdef DEBUG
 //    host = @"ws://192.168.1.200:5005/WebSocketXX";
 //#endif

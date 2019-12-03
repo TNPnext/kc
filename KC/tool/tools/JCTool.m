@@ -27,12 +27,12 @@ static JCTool *tool = nil;
 {
     
     //---------测试--------
-#ifdef DEBUG
-    NSDictionary *testDic = @{@"ip":@"http://192.168.1.200",@"port":@"5002"};
-    [JCTool share].urlDic = testDic;
-    return @"http://192.168.1.200:5002/server";
-//    return @"http://27.159.82.32:8034/server";
-#endif
+//#ifdef DEBUG
+//    NSDictionary *testDic = @{@"ip":@"http://192.168.1.200",@"port":@"5002"};
+//    [JCTool share].urlDic = testDic;
+//    return @"http://192.168.1.200:5002/server";
+////    return @"http://27.159.82.32:8034/server";
+//#endif
      return @"https://a.minerx.org/server";
     NSArray *urlArr = KOutObj(@"Urls");
     if ([urlArr isKindOfClass:[NSArray class]]&&urlArr.count==0)

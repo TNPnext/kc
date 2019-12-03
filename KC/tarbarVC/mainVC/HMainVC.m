@@ -228,7 +228,11 @@
         url = @"";
     }
     webV.reqUrl = url;
-    [self.navigationController pushViewController:webV animated:1];
+    if (url.length>5) {
+         [self.navigationController pushViewController:webV animated:1];
+    }
+    
+   
 }
 
 

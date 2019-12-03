@@ -7,7 +7,7 @@
 //
 
 #import "WalletListVC.h"
-
+#import <AudioToolbox/AudioToolbox.h>
 @interface WalletListVC ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic)NSMutableArray *dataArray;
@@ -69,6 +69,7 @@
 
 -(void)getData
 {
+    
     TParms;
     kWeakSelf;
     [parms setValue:_type forKey:@"tradetype"];

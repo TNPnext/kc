@@ -906,10 +906,10 @@
                     <connections>
                         <outlet property="inputF0" destination="Csf-6M-RhU" id="x29-PE-1ld"/>
                         <outlet property="inputF1" destination="DdV-0d-CrH" id="Cnn-BC-dXG"/>
-                        <outlet property="inputF2" destination="ET2-1y-yxH" id="45W-PD-Gxd"/>
-                        <outlet property="inputF3" destination="4y4-wZ-iww" id="YKS-kO-ScK"/>
-                        <outlet property="inputF4" destination="fpr-7r-9yy" id="KUa-yF-g34"/>
-                        <outlet property="inputF5" destination="gl9-nm-l7j" id="CI6-eD-3PL"/>
+                        <outlet property="inputF2" destination="gl9-nm-l7j" id="Ev3-yU-QYD"/>
+                        <outlet property="inputF3" destination="ET2-1y-yxH" id="Hxp-I8-mGC"/>
+                        <outlet property="inputF4" destination="4y4-wZ-iww" id="uYG-jv-hZc"/>
+                        <outlet property="inputF5" destination="fpr-7r-9yy" id="TSd-D3-ehR"/>
                         <outlet property="seBtn" destination="D8p-sg-PRv" id="3JC-11-PGL"/>
                     </connections>
                 </viewController>
@@ -3413,13 +3413,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="10" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0Y-7Y-dIz">
-                                                    <rect key="frame" x="25" y="16" width="340" height="18"/>
+                                                    <rect key="frame" x="25" y="16" width="347" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_right" translatesAutoresizingMaskIntoConstraints="NO" id="mgr-Y0-8mA">
-                                                    <rect key="frame" x="375" y="12" width="14" height="26"/>
+                                                    <rect key="frame" x="382" y="18.333333333333332" width="7" height="13.333333333333332"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cpY-bJ-dye">
                                                     <rect key="frame" x="25" y="49.666666666666664" width="364" height="0.3333333333333357"/>
